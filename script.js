@@ -516,41 +516,13 @@ function showPopup(card, index) {
     oshiTypeDiv.appendChild(lifeP);
 
     // 處理並顯示主推技能
-    const skill = parseSkill(card.skill); // 處理主推技能
-    const skillDiv = document.createElement('div');
-    skillDiv.className = 'skill-section';
-    
-    const skillCostP = document.createElement('p');
-    skillCostP.innerHTML = `<strong><span class="label">消耗能量</span></strong> ${skill.energyCost}`;
-    skillDiv.appendChild(skillCostP);
-
-    const skillNameP = document.createElement('p');
-    skillNameP.innerHTML = `<strong><span class="label">技能名稱</span></strong> ${skill.name}`;
-    skillDiv.appendChild(skillNameP);
-
-    const skillDescriptionP = document.createElement('p');
-    skillDescriptionP.innerHTML = `<strong><span class="label">技能說明</span></strong> ${skill.description}`;
-    skillDiv.appendChild(skillDescriptionP);
-
+    const skill = parseSkill(card.skill, "主推技能"); // 處理主推技能
+    const skillDiv = createSkillSection(skill); // 創建主推技能區域
     oshiTypeDiv.appendChild(skillDiv);
 
     // 處理並顯示 SP 主推技能
-    const spSkill = parseSkill(card.spSkill); // 處理 SP 主推技能
-    const spSkillDiv = document.createElement('div');
-    spSkillDiv.className = 'sp-skill-section';
-    
-    const spSkillCostP = document.createElement('p');
-    spSkillCostP.innerHTML = `<strong><span class="label">消耗能量</span></strong> ${spSkill.energyCost}`;
-    spSkillDiv.appendChild(spSkillCostP);
-
-    const spSkillNameP = document.createElement('p');
-    spSkillNameP.innerHTML = `<strong><span class="label">技能名稱</span></strong> ${spSkill.name}`;
-    spSkillDiv.appendChild(spSkillNameP);
-
-    const spSkillDescriptionP = document.createElement('p');
-    spSkillDescriptionP.innerHTML = `<strong><span class="label">技能說明</span></strong> ${spSkill.description}`;
-    spSkillDiv.appendChild(spSkillDescriptionP);
-
+    const spSkill = parseSkill(card.spSkill, "SP主推技能"); // 處理 SP 主推技能
+    const spSkillDiv = createSkillSection(spSkill); // 創建 SP 主推技能區域
     oshiTypeDiv.appendChild(spSkillDiv);
 
     // 顯示卡包和卡牌編號
@@ -566,7 +538,7 @@ function showPopup(card, index) {
   }
 
   // 函數：解析技能的字串
-function parseSkill(skillString) {
+function parseSkill(skillString, label) {
   // 假設 skillString 的格式是：[holo能量：-2]技能名稱\n[每場比賽一次]技能說明
   const skillParts = skillString.split('\n');
   const energyCost = skillParts[0].match(/：(-?\d+)/) ? skillParts[0].match(/：(-?\d+)/)[1] : '未知';  // 解析能量消耗
@@ -575,9 +547,35 @@ function parseSkill(skillString) {
 
   return {
     energyCost,
+    label,
     name,
     description,
   };
+}
+
+// 函數：創建技能顯示區域
+function createSkillSection(skill) {
+  const skillDiv = document.createElement('div');
+  skillDiv.className = 'skill-section';
+
+  // 顯示消耗能量和 label
+  const skillCostP = document.createElement('p');
+  skillCostP.innerHTML = `<strong><span class="label">${skill.label}</span></strong> <span class="energy-cost">${skill.energyCost}</span>`;
+  skillDiv.appendChild(skillCostP);
+
+  // 顯示技能名稱
+  const skillNameP = document.createElement('p');
+  skillNameP.style.marginLeft = '20px';  // 增加縮排
+  skillNameP.innerHTML = `<strong><span class="label">技能名稱</span></strong> ${skill.name}`;
+  skillDiv.appendChild(skillNameP);
+
+  // 顯示技能說明
+  const skillDescriptionP = document.createElement('p');
+  skillDescriptionP.style.marginLeft = '20px';  // 增加縮排
+  skillDescriptionP.innerHTML = `<strong><span class="label">技能說明</span></strong> ${skill.description}`;
+  skillDiv.appendChild(skillDescriptionP);
+
+  return skillDiv;
 }
   
   document.getElementById('popup').style.display = 'flex';
