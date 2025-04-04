@@ -564,21 +564,29 @@ function createSkillSection(skill) {
   const skillDiv = document.createElement('div');
   skillDiv.className = 'skill-section';
 
-  // 顯示消耗能量和 label
+  // 根據 skill.label 給予不同的 class 來顯示不同樣式
+  const labelClass = skill.label === '主推技能' ? 'label skill' : 'label spSkill';
+
+  // 顯示技能標籤（label），並且根據 skill.label 設置不同的 class
+  const skillLabelP = document.createElement('p');
+  skillLabelP.innerHTML = `<strong><span class="label ${labelClass}">${skill.label}</span></strong>`; // 根據 label 類型動態設置 class
+  skillDiv.appendChild(skillLabelP);
+
+  // 顯示消耗能量
   const skillCostP = document.createElement('p');
-  skillCostP.innerHTML = `<strong><span class="label">${skill.label}</span></strong> <span class="energy-cost">${skill.energyCost}</span>`;
+  skillCostP.innerHTML = `<span class="energy-cost">${skill.energyCost}</span>`;
   skillDiv.appendChild(skillCostP);
 
   // 顯示技能名稱
   const skillNameP = document.createElement('p');
   skillNameP.style.marginLeft = '20px';  // 增加縮排
-  skillNameP.innerHTML = `<strong><span class="label">技能名稱</span></strong> ${skill.name}`;
+  skillNameP.innerHTML = `${skill.name}`;
   skillDiv.appendChild(skillNameP);
 
   // 顯示技能說明
   const skillDescriptionP = document.createElement('p');
   skillDescriptionP.style.marginLeft = '20px';  // 增加縮排
-  skillDescriptionP.innerHTML = `<strong><span class="label">技能說明</span></strong> ${skill.description}`;
+  skillDescriptionP.innerHTML = `${skill.description}`;
   skillDiv.appendChild(skillDescriptionP);
 
   return skillDiv;
