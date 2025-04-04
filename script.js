@@ -559,7 +559,6 @@ function parseSkill(skillString, label) {
   };
 }
 
-// 函數：創建技能顯示區域
 function createSkillSection(skill) {
   const skillDiv = document.createElement('div');
   skillDiv.className = 'skill-section';
@@ -567,15 +566,23 @@ function createSkillSection(skill) {
   // 根據 skill.label 給予不同的 class 來顯示不同樣式
   const labelClass = skill.label === '主推技能' ? 'label skill' : 'label spSkill';
 
+  // 創建一個包含標籤和能量消耗的父元素
+  const skillCostWrapper = document.createElement('div');
+  skillCostWrapper.style.display = 'flex'; // 使用 flexbox 讓 label 和能量消耗在同一行
+
   // 顯示技能標籤（label），並且根據 skill.label 設置不同的 class
   const skillLabelP = document.createElement('p');
+  skillLabelP.style.marginRight = '10px';  // 給標籤和能量消耗之間添加一點間距
   skillLabelP.innerHTML = `<strong><span class="label ${labelClass}">${skill.label}</span></strong>`; // 根據 label 類型動態設置 class
-  skillDiv.appendChild(skillLabelP);
+  skillCostWrapper.appendChild(skillLabelP);
 
   // 顯示消耗能量
   const skillCostP = document.createElement('p');
   skillCostP.innerHTML = `<span class="energy-cost">${skill.energyCost}</span>`;
-  skillDiv.appendChild(skillCostP);
+  skillCostWrapper.appendChild(skillCostP);
+
+  // 把能量消耗和標籤包裹起來的 div 加入到 skillDiv 中
+  skillDiv.appendChild(skillCostWrapper);
 
   // 顯示技能名稱
   const skillNameP = document.createElement('p');
