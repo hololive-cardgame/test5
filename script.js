@@ -539,11 +539,17 @@ function showPopup(card, index) {
 
   // 函數：解析技能的字串
 function parseSkill(skillString, label) {
-  // 假設 skillString 的格式是：[holo能量：-2]技能名稱\n[每場比賽一次]技能說明
+  // 假設 skillString 的格式是：[holo能量：-2]\n技能名稱\n[每場比賽一次]技能說明
   const skillParts = skillString.split('\n');
-  const energyCost = skillParts[0].match(/：(-?\d+)/) ? skillParts[0].match(/：(-?\d+)/)[1] : '未知';  // 解析能量消耗
-  const name = skillParts[1] || '無名稱';  // 解析技能名稱
-  const description = skillParts[2] || '無描述';  // 解析技能說明
+  
+  // 提取能量消耗
+  const energyCost = skillParts[0]; // 這是 [holo能量：-2]
+  
+  // 提取技能名稱
+  const name = skillParts[1] || '無名稱';  // 解析技能名稱，若無則為'無名稱'
+  
+  // 提取技能說明
+  const description = skillParts[2] || '無描述';  // 解析技能說明，若無則為'無描述'
 
   return {
     energyCost,
