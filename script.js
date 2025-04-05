@@ -489,6 +489,50 @@ function showPopup(card, index) {
   });
 
   // 填充右側詳細資料
+  let rightHtml = '
+    <h2>${card.name}</h2>
+  ';
+
+  if (card.type === "主推") {
+    rightHtml += `
+      <div id="popupOshiType">
+        <div class="info">
+          <dl>
+            <dt class="label">類型</dt>
+            <dd>${card.type}</dd>
+            <dt class="label">収録商品</dt>
+            <dd>${card.set}</dd>
+            <dt class="label">屬性</dt>
+            <dd>${card.attribute}</dd>
+            <dt class="label">生命值</dt>
+            <dd>${card.life}</dd>
+          </dl>
+        </div>
+
+        <div class="oshi skill">
+          <p class="label skill">主推技能</p>
+          <p>[holo能量：${card.oshiSkill.holoPower}]<span>${card.oshiSkill.name}</span>${card.oshiSkill.effect}</p>
+        </div>
+
+        <div class="sp skill">
+          <p class="label spSkill">SP主推技能</p>
+          <p>[holo能量：${card.spSkill.holoPower}]<span>${card.spSkill.name}</span>${card.spSkill.effect}</p>
+        </div>
+
+        <div class="illustrator">
+          <p class="id">カードナンバー：<span>${card.id}</span></p>
+      </div>
+      
+      </div>`;
+  }
+
+
+
+
+
+
+
+  /*
   let rightHtml = `
     <h2>${card.name}</h2>
     <p><strong><span class="label">類型</span></strong> ${card.type}</p>
@@ -522,46 +566,10 @@ function showPopup(card, index) {
 
         <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
       </div>`;
-  } else if (card.type === "吶喊") {
-    // 處理效果字段
-    const yellEffects = card.yellEffect ? card.yellEffect.split('\n') : [];
-    
-    rightHtml += `
-      <div id="popupYellType">
-        <p><strong><span class="label">屬性</span></strong> ${card.attribute}</p>
-
-        <!-- 效果 -->
-        <p><strong><span class="label">效果</span></strong> ${yellEffects[0]}</p>
-        ${yellEffects.slice(1).map(effect => `<p class="yellEffect-indent">${effect}</p>`).join('')}
-        
-        <!-- 卡包 -->
-        <p><strong><span class="label">卡包</span></strong> ${setItems[0]}</p>
-        ${setItems.slice(1).map(set => `<p class="set-indent">${set}</p>`).join('')}
-        
-        <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
-      </div>`;
   }
+  */
   
   rightContent.innerHTML = rightHtml;
-
-  // 解析主推技能、SP主推技能字串
-  function parseSkill(skillString, label) {
-    // skillString 的格式是：[holo能量：-2]\n技能名稱\n[每個回合一次]技能說明
-    const skillParts = skillString.split('\n');
-    // 提取能量消耗
-    const holoPower = skillParts[0];  // 這是 [holo能量：-2]
-    // 提取技能名稱
-    const name = skillParts[1] || '無名稱';  // 解析技能名稱，若無則為'無名稱'
-    // 提取技能說明
-    const description = skillParts[2] || '無描述';  // 解析技能說明，若無則為'無描述'
-
-    return {
-      holoPower,
-      label,
-      name,
-      description,
-    };
-  }
 
   // 顯示彈窗
   document.getElementById('popup').style.display = 'flex';
