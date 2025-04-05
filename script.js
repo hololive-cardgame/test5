@@ -481,6 +481,13 @@ function showPopup(card, index) {
   // 將新創建的圖片元素插入到左側區域
   leftContent.appendChild(imageElement);
 
+  // 處理卡包字段
+  const cardSets = Array.isArray(card.set) ? card.set : [card.set];  // 確保 card.set 是數組
+  const setItems = cardSets.map(setItem => {
+    const setName = setItem.replace(/[「」]/g, "").replace(/\(.*\)/, "").trim();  // 去掉括號及其中內容
+    return setName;
+  });
+
   // 填充右側詳細資料
   let rightHtml = `
     <h2>${card.name}</h2>
@@ -499,17 +506,20 @@ function showPopup(card, index) {
         
         <!-- 主推技能 -->
         <p><strong><span class="label skill">${skill.label}</span></strong>
-          <span class="energy-cost">${skill.energyCost}</span></p>
+          <span class="skill-holoPower">${skill.holoPower}</span></p>
         <p class="skill-name">${skill.name}</p>
         <p class="skill-description">${skill.description}</p>
 
         <!-- SP主推技能 -->
         <p><strong><span class="label spSkill">${spSkill.label}</span></strong>
-          <span class="energy-cost">${spSkill.energyCost}</span></p>
-        <p class="skill-name">${spSkill.name}</p>
-        <p class="skill-description">${spSkill.description}</p>
+          <span class="spSkill-holoPower">${spSkill.holoPower}</span></p>
+        <p class="spSkill-name">${spSkill.name}</p>
+        <p class="spSkill-description">${spSkill.description}</p>
 
-        <p><strong><span class="label">卡包</span></strong> ${card.set}</p>
+        <!-- 卡包顯示 -->
+        <p><strong><span class="label">卡包</span></strong> ${setItems[0]}</p>
+        ${setItems.slice(1).map(set => `<p class="set-indent">${set}</p>`).join('')}
+
         <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
       </div>`;
   }
@@ -521,14 +531,14 @@ function showPopup(card, index) {
     // skillString 的格式是：[holo能量：-2]\n技能名稱\n[每個回合一次]技能說明
     const skillParts = skillString.split('\n');
     // 提取能量消耗
-    const energyCost = skillParts[0];  // 這是 [holo能量：-2]
+    const holoPower = skillParts[0];  // 這是 [holo能量：-2]
     // 提取技能名稱
     const name = skillParts[1] || '無名稱';  // 解析技能名稱，若無則為'無名稱'
     // 提取技能說明
     const description = skillParts[2] || '無描述';  // 解析技能說明，若無則為'無描述'
 
     return {
-      energyCost,
+      holoPower,
       label,
       name,
       description,
