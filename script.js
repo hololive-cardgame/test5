@@ -532,7 +532,7 @@ function showPopup(card, index) {
 
         <!-- 效果 -->
         <p><strong><span class="label">效果</span></strong> ${yellEffects[0]}</p>
-        ${yellEffects.slice(1).map(effect => `<p class="set-indent">${effect}</p>`).join('')}
+        ${yellEffects.slice(1).map(effect => `<p class="yellEffect-indent">${effect}</p>`).join('')}
         
         <!-- 卡包 -->
         <p><strong><span class="label">卡包</span></strong> ${setItems[0]}</p>
