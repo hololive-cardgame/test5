@@ -489,9 +489,9 @@ function showPopup(card, index) {
   });
 
   // 填充右側詳細資料
-  let rightHtml = '
+  let rightHtml = `
     <h2>${card.name}</h2>
-  ';
+  `;
 
   if (card.type === "主推") {
     rightHtml += `
