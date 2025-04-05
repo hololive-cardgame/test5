@@ -516,10 +516,28 @@ function showPopup(card, index) {
         <p class="spSkill-name">${spSkill.name}</p>
         <p class="spSkill-description">${spSkill.description}</p>
 
-        <!-- 卡包顯示 -->
+        <!-- 卡包 -->
         <p><strong><span class="label">卡包</span></strong> ${setItems[0]}</p>
         ${setItems.slice(1).map(set => `<p class="set-indent">${set}</p>`).join('')}
 
+        <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
+      </div>`;
+  } else if (card.type === "吶喊") {
+    // 處理效果字段
+    const yellEffects = card.yellEffect ? card.yellEffect.split('\n') : [];
+    
+    rightHtml += `
+      <div id="popupYellType">
+        <p><strong><span class="label">屬性</span></strong> ${card.attribute}</p>
+
+        <!-- 效果 -->
+        <p><strong><span class="label">效果</span></strong> ${yellEffects[0]}</p>
+        ${yellEffects.slice(1).map(effect => `<p class="set-indent">${effect}</p>`).join('')}
+        
+        <!-- 卡包 -->
+        <p><strong><span class="label">卡包</span></strong> ${setItems[0]}</p>
+        ${setItems.slice(1).map(set => `<p class="set-indent">${set}</p>`).join('')}
+        
         <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
       </div>`;
   }
