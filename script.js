@@ -484,7 +484,7 @@ function showPopup(card, index) {
   // 處理卡包字段
   const cardSets = Array.isArray(card.set) ? card.set : [card.set];  // 確保 card.set 是數組
   const setItems = cardSets.map(setItem => {
-    const setName = setItem.replace(/[「」]/g, "").replace(/\(.*\)/, "").trim();  // 去掉括號及其中內容
+    const setName = setItem.replace(/\(.*\)/, "").trim();  // 去掉括號及其中內容
     return setName;
   });
 
