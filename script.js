@@ -63,10 +63,10 @@ function generateFilterOptions() {
         if (setItem.includes("起始牌組")) {
           const setName = setItem.replace("起始牌組","").replace(/[「」]/g,"").trim();
           sets["起始牌組"].add(setName);
-        }else if (setItem.includes("補充包")) {
+        } else if (setItem.includes("補充包")) {
           const setName = setItem.replace("補充包","").replace(/[「」]/g,"").trim();
           sets["補充包"].add(setName);
-        }else if (card.set === "スタートエールセット" || card.set === "PR卡"){
+        } else if (setItem === "スタートエールセット" || setItem === "PR卡") {
           sets["其他"].add(setItem);
         }
       });
@@ -168,8 +168,6 @@ function generateFilterOptions() {
       option.textContent = set;
       optgroup.appendChild(option);
     });
-
-    // 把分組添加到 select 元素中
     $("#set").append(optgroup);
   });
 
@@ -212,9 +210,6 @@ function generateFilterOptions() {
     // 監聽篩選條件變動，觸發篩選
     $('#attribute').on('change', function() {
       if (isInitialized) {
-        if ($("#attribute").val().length === 0) {
-          $("#clearAttribute").hide();
-        }
         filterCards();
       }
     });
@@ -266,7 +261,7 @@ clearFiltersBtn.addEventListener("click", () => {
     $("#keyword, #attribute, #bloom, #tag, #set").val("").trigger("change");
     $("#attribute").val([]).trigger("change");  // 單獨處理 attribute 篩選條件，設為空數組並觸發更新
     $("#type").val("allOption").trigger("change");
-    $("#clearKeyword, #clearAttribute, #clearBloom, #clearTag, #clearSet").hide();  // 隱藏清除按鈕
+    $("#clearKeyword, #clearBloom, #clearTag, #clearSet").hide();  // 隱藏清除按鈕
     displayCards(cardsData);
   }
 });
