@@ -482,118 +482,60 @@ function showPopup(card, index) {
   leftContent.appendChild(imageElement);
 
   // 填充右側詳細資料
-  const nameElement = document.createElement('h2');
-  nameElement.textContent = card.name;
+  let rightHtml = `
+    <h2>${card.name}</h2>
+    <p><strong><span class="label">類型</span></strong> ${card.type}</p>
+  `;
 
-  const typeElement = document.createElement('p');
-  const labelSpan = document.createElement('span');
-  labelSpan.className = 'label';
-  labelSpan.textContent = '類型';
-  typeElement.appendChild(labelSpan);
-  typeElement.innerHTML += ` ${card.type}`;
-
-  rightContent.appendChild(nameElement);
-  rightContent.appendChild(typeElement);
-
-  // 根據卡牌類型來動態生成內容
   if (card.type === "主推") {
-    // 創建主推的詳細資料區域
-    const oshiTypeDiv = document.createElement('div');
-    oshiTypeDiv.id = 'popupOshiType';
+    // 解析主推技能和 SP 主推技能
+    const skill = parseSkill(card.skill, "主推技能");
+    const spSkill = parseSkill(card.spSkill, "SP主推技能");
+    
+    rightHtml += `
+      <div id="popupOshiType">
+        <p><strong><span class="label">屬性</span></strong> ${card.attribute}</p>
+        <p><strong><span class="label">生命值</span></strong> ${card.life}</p>
+        
+        <!-- 主推技能 -->
+        <p><strong><span class="label skill">${skill.label}</span></strong>
+          <span class="energy-cost">${skill.energyCost}</span></p>
+        <p class="skill-name">${skill.name}</p>
+        <p class="skill-description">${skill.description}</p>
 
-    // 顯示屬性、生命值
-    const attributeP = document.createElement('p');
-    attributeP.innerHTML = `<strong><span class="label">屬性</span></strong> ${card.attribute}`;
-    oshiTypeDiv.appendChild(attributeP);
+        <!-- SP主推技能 -->
+        <p><strong><span class="label spSkill">${spSkill.label}</span></strong>
+          <span class="energy-cost">${spSkill.energyCost}</span></p>
+        <p class="skill-name">${spSkill.name}</p>
+        <p class="skill-description">${spSkill.description}</p>
 
-    const lifeP = document.createElement('p');
-    lifeP.innerHTML = `<strong><span class="label">生命值</span></strong> ${card.life}`;
-    oshiTypeDiv.appendChild(lifeP);
+        <p><strong><span class="label">卡包</span></strong> ${card.set}</p>
+        <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
+      </div>`;
+  }
+  
+  rightContent.innerHTML = rightHtml;
 
-    // 處理並顯示主推技能
-    const skill = parseSkill(card.skill, "主推技能"); // 處理主推技能
-    const skillDiv = createSkillSection(skill); // 創建主推技能區域
-    oshiTypeDiv.appendChild(skillDiv);
+  // 解析主推技能、SP主推技能字串
+  function parseSkill(skillString, label) {
+    // skillString 的格式是：[holo能量：-2]\n技能名稱\n[每個回合一次]技能說明
+    const skillParts = skillString.split('\n');
+    // 提取能量消耗
+    const energyCost = skillParts[0];  // 這是 [holo能量：-2]
+    // 提取技能名稱
+    const name = skillParts[1] || '無名稱';  // 解析技能名稱，若無則為'無名稱'
+    // 提取技能說明
+    const description = skillParts[2] || '無描述';  // 解析技能說明，若無則為'無描述'
 
-    // 處理並顯示 SP 主推技能
-    const spSkill = parseSkill(card.spSkill, "SP主推技能"); // 處理 SP 主推技能
-    const spSkillDiv = createSkillSection(spSkill); // 創建 SP 主推技能區域
-    oshiTypeDiv.appendChild(spSkillDiv);
-
-    // 顯示卡包和卡牌編號
-    const setP = document.createElement('p');
-    setP.innerHTML = `<strong><span class="label">卡包</span></strong> ${card.set}`;
-    oshiTypeDiv.appendChild(setP);
-
-    const idP = document.createElement('p');
-    idP.innerHTML = `<strong><span class="label">卡牌編號</span></strong> ${card.id}`;
-    oshiTypeDiv.appendChild(idP);
-
-    rightContent.appendChild(oshiTypeDiv); // 將主推資料區域加入到右側區域
+    return {
+      energyCost,
+      label,
+      name,
+      description,
+    };
   }
 
-  // 函數：解析技能的字串
-function parseSkill(skillString, label) {
-  // 假設 skillString 的格式是：[holo能量：-2]\n技能名稱\n[每場比賽一次]技能說明
-  const skillParts = skillString.split('\n');
-  
-  // 提取能量消耗
-  const energyCost = skillParts[0]; // 這是 [holo能量：-2]
-  
-  // 提取技能名稱
-  const name = skillParts[1] || '無名稱';  // 解析技能名稱，若無則為'無名稱'
-  
-  // 提取技能說明
-  const description = skillParts[2] || '無描述';  // 解析技能說明，若無則為'無描述'
-
-  return {
-    energyCost,
-    label,
-    name,
-    description,
-  };
-}
-
-function createSkillSection(skill) {
-  const skillDiv = document.createElement('div');
-  skillDiv.className = 'skill-section';
-
-  // 根據 skill.label 給予不同的 class 來顯示不同樣式
-  const labelClass = skill.label === '主推技能' ? 'label skill' : 'label spSkill';
-
-  // 創建一個包含標籤和能量消耗的父元素
-  const skillCostWrapper = document.createElement('div');
-  skillCostWrapper.style.display = 'flex'; // 使用 flexbox 讓 label 和能量消耗在同一行
-
-  // 顯示技能標籤（label），並且根據 skill.label 設置不同的 class
-  const skillLabelP = document.createElement('p');
-  skillLabelP.style.marginRight = '10px';  // 給標籤和能量消耗之間添加一點間距
-  skillLabelP.innerHTML = `<strong><span class="label ${labelClass}">${skill.label}</span></strong>`; // 根據 label 類型動態設置 class
-  skillCostWrapper.appendChild(skillLabelP);
-
-  // 顯示消耗能量
-  const skillCostP = document.createElement('p');
-  skillCostP.innerHTML = `<span class="energy-cost">${skill.energyCost}</span>`;
-  skillCostWrapper.appendChild(skillCostP);
-
-  // 把能量消耗和標籤包裹起來的 div 加入到 skillDiv 中
-  skillDiv.appendChild(skillCostWrapper);
-
-  // 顯示技能名稱
-  const skillNameP = document.createElement('p');
-  skillNameP.style.marginLeft = '20px';  // 增加縮排
-  skillNameP.innerHTML = `${skill.name}`;
-  skillDiv.appendChild(skillNameP);
-
-  // 顯示技能說明
-  const skillDescriptionP = document.createElement('p');
-  skillDescriptionP.style.marginLeft = '20px';  // 增加縮排
-  skillDescriptionP.innerHTML = `${skill.description}`;
-  skillDiv.appendChild(skillDescriptionP);
-
-  return skillDiv;
-}
-  
+  // 顯示彈窗
   document.getElementById('popup').style.display = 'flex';
 
   // 設置左右箭頭的事件，基於篩選後的卡牌
