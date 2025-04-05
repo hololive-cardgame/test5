@@ -488,6 +488,11 @@ function showPopup(card, index) {
     return setName;
   });
 
+  // 處理支持效果的字段，將 \n 轉換為 <br>，並且將 \n\n 轉換為 <br><br> (空行)
+  const supportEffect = card.supportEffect
+    ? card.supportEffect.replace(/\n\n/g, "<br><br>").replace(/\n/g, "<br>")
+    : "";
+
   // 填充右側詳細資料
   let rightHtml = `
     <h2>${card.name}</h2>
