@@ -501,8 +501,7 @@ function showPopup(card, index) {
             <dt class="label">類型</dt>
             <dd>${card.type}</dd>
             <dt class="label">収録商品</dt>
-            <dd>${setItems[0]}</dd>
-            ${setItems.slice(1).map(set => `<dd class="set-indent">${set}</dd>`).join('')}
+            <dd>${setItems.join('<br>')}</dd>
             <dt class="label">屬性</dt>
             <dd>${card.attribute}</dd>
             <dt class="label">生命值</dt>
