@@ -482,9 +482,9 @@ function showPopup(card, index) {
   leftContent.appendChild(imageElement);
 
   // 處理卡包字段
-  const cardSets = Array.isArray(card.set) ? card.set : [card.set];  // 確保 card.set 是數組
-  const setItems = cardSets.map(setItem => {
-    const setName = setItem.replace(/\(.*\)/, "").trim();  // 去掉括號及其中內容
+  const cardProducts = Array.isArray(card.product) ? card.product : [card.product];  // 確保 card.product 是數組
+  const productItems = cardProducts.map(productItem => {
+    const setName = productItem.replace(/\(.*\)/, "").trim();  // 去掉括號及其中內容
     return setName;
   });
 
@@ -498,6 +498,50 @@ function showPopup(card, index) {
     <h2>${card.name}</h2>
   `;
 
+  if (card.type === "主推") {
+    rightHtml += `
+      <div class="oshi-details">
+        <div class="oshi-info">
+          <span class="label">類型</span>
+          <span>${card.type}</span>
+        </div>
+        <div class="oshi-info">
+          <span class="label">收錄商品</span>
+          <span>${productItems.join('<br>')}</span>
+        </div>
+        <div class="oshi-info">
+          <span class="label">顏色</span>
+          <span>${card.color}</span>
+        </div>
+        <div class="oshi-info">
+          <span class="label">生命值</span>
+          <span>${card.life}</span>
+        </div>
+        <div class="oshi-info">
+          <div class="label oshiSkill">主推技能</span>
+          <div class="oshi skill">
+            <span class="holoPower">[holo能量：${card.oshiSkill.holoPower}]</span>
+            <span class="oshi skill name">${card.oshiSkill.name}</span>
+            <span class="oshi skill effect">${card.oshiSkill.effect}</span>
+          </div>
+        </div>
+        <div class="oshi-info">
+          <div class="label spSkill">主推技能</span>
+          <div class="sp skill">
+            <span class="holoPower">[holo能量：${card.spSkill.holoPower}]</span>
+            <span class="sp skill name">${card.spSkill.name}</span>
+            <span class="sp skill effect">${card.spSkill.effect}</span>
+          </div>
+        </div>
+        <div class="oshi-info">
+          <span class="label">卡牌編號</span>
+          <span>${card.id}</span>
+        </div>
+      </div>`;
+  }
+
+  
+/*
   if (card.type === "主推") {
     rightHtml += `
       <div id="popupOshiType">
@@ -530,7 +574,7 @@ function showPopup(card, index) {
       
       </div>`;
   }
-
+*/
 
 
 
@@ -656,7 +700,6 @@ function showPopup(card, index) {
         <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
       </div>`;
   }
-  rightContent.innerHTML = rightHtml;
   */
   
   rightContent.innerHTML = rightHtml;
