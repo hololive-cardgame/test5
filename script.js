@@ -505,34 +505,42 @@ function showPopup(card, index) {
           <span class="label">類型</span>
           <span>${card.type}</span>
         </div>
+        
         <div class="oshi-info">
           <span class="label">收錄商品</span>
-          <span>${setItems.join('<br>')}</span>
+          <ul class="product-list">
+            ${setItems.map(item => `<li>${item}</li>`).join('')}
+          </ul>
         </div>
+        
         <div class="oshi-info">
           <span class="label">顏色</span>
           <span>${card.color}</span>
         </div>
+        
         <div class="oshi-info">
           <span class="label">生命值</span>
           <span>${card.life}</span>
         </div>
+        
         <div class="oshi-info">
-          <div class="label oshiSkill">主推技能</span>
+          <span class="label">主推技能</span>
           <div class="oshi skill">
             <span class="holoPower">[holo能量：${card.oshiSkill.holoPower}]</span>
-            <span class="oshi skill name">${card.oshiSkill.name}</span>
-            <span class="oshi skill effect">${card.oshiSkill.effect}</span>
+            <span class="oshiSkill name">${card.oshiSkill.name}</span>
+            <span class="oshiSkill effect">${card.oshiSkill.effect}</span>
           </div>
         </div>
+        
         <div class="oshi-info">
-          <div class="label spSkill">主推技能</span>
+          <span class="label">SP主推技能</span>
           <div class="sp skill">
             <span class="holoPower">[holo能量：${card.spSkill.holoPower}]</span>
-            <span class="sp skill name">${card.spSkill.name}</span>
-            <span class="sp skill effect">${card.spSkill.effect}</span>
+            <span class="spSkill name">${card.spSkill.name}</span>
+            <span class="spSkill effect">${card.spSkill.effect}</span>
           </div>
         </div>
+        
         <div class="oshi-info">
           <span class="label">卡牌編號</span>
           <span>${card.id}</span>
