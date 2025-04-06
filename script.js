@@ -498,6 +498,7 @@ function showPopup(card, index) {
     <h2>${card.name}</h2>
   `;
 
+  /*
   if (card.type === "主推") {
     rightHtml += `
       <div class="oshi-details">
@@ -549,6 +550,7 @@ function showPopup(card, index) {
         </div>
       </div>`;
   }
+  */
 
   /*
   if (card.type === "主推") {
@@ -657,7 +659,7 @@ function showPopup(card, index) {
   */
 
   
-/*
+
   if (card.type === "主推") {
     rightHtml += `
       <div id="popupOshiType">
@@ -667,8 +669,8 @@ function showPopup(card, index) {
             <dd>${card.type}</dd>
             <dt class="label">収録商品</dt>
             <dd>${setItems.join('<br>')}</dd>
-            <dt class="label">屬性</dt>
-            <dd>${card.attribute}</dd>
+            <dt class="label">顏色</dt>
+            <dd>${card.color}</dd>
             <dt class="label">生命值</dt>
             <dd>${card.life}</dd>
           </dl>
@@ -690,7 +692,7 @@ function showPopup(card, index) {
       
       </div>`;
   }
-*/
+
 
 
 
