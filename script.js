@@ -545,11 +545,6 @@ function showPopup(card, index) {
                 <dt class="label">卡牌編號</dt>
                 <dd>${card.id}</dd>
               </div>
-
-              <div class="pair">
-                <span class="label">卡牌編號</span>
-                <span>${card.id}</span>
-              </div>
             </dl>
         </div>
       </div>`;
