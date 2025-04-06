@@ -522,6 +522,64 @@ function showPopup(card, index) {
                 <dt class="label">生命值</dt>
                 <dd>${card.life}</dd>
               </div>
+
+              <div class="pair">
+                <dt class="label">主推技能</dt>
+                <div class="oshi skill">
+                  <dd class="holoPower">[holo能量：${card.oshiSkill.holoPower}]</dd>
+                  <dd class="oshiSkill name">${card.oshiSkill.name}</dd>
+                  <dd class="oshiSkill effect">${card.oshiSkill.effect}</dd>
+                </div>
+              </div>
+
+              <div class="pair">
+                <dt class="label">SP主推技能</dt>
+                <div class="sp skill">
+                  <dd class="holoPower">[holo能量：${card.spSkill.holoPower}]</dd>
+                  <dd class="spSkill name">${card.spSkill.name}</dd>
+                  <dd class="spSkill effect">${card.spSkill.effect}</dd>
+                </div>
+              </div>
+
+              <div class="pair">
+                <dt class="label">卡牌編號</dt>
+                <dd>${card.id}</dd>
+              </div>
+
+              <div class="pair">
+                <span class="label">卡牌編號</span>
+                <span>${card.id}</span>
+              </div>
+            </dl>
+        </div>
+      </div>`;
+  }
+
+  /*
+  if (card.type === "主推") {
+    rightHtml += `
+      <div class="oshi-details">
+        <div class="info">
+            <dl>
+              <div class="pair">
+                <dt class="label">類型</dt>
+                <dd>${card.type}</dd>
+              </div>
+
+              <div class="pair">
+                <dt class="label">収録商品</dt>
+                <dd>${setItems.join('<br>')}</dd>
+              </div>
+
+              <div class="pair">
+                <dt class="label">顏色</dt>
+                <dd>${card.color}</dd>
+              </div>
+
+              <div class="pair">
+                <dt class="label">生命值</dt>
+                <dd>${card.life}</dd>
+              </div>
             </dl>
         </div>
 
@@ -549,7 +607,7 @@ function showPopup(card, index) {
         </div>
       </div>`;
   }
-
+*/
 
   /*
   if (card.type === "主推") {
