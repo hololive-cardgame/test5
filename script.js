@@ -503,18 +503,29 @@ function showPopup(card, index) {
       <div class="oshi-details">
         <div class="info">
             <dl>
-              <dt class="label">類型</dt>
-              <dd>${card.type}</dd>
-              <dt class="label">収録商品</dt>
-              <dd>${setItems.join('<br>')}</dd>
-              <dt class="label">顏色</dt>
-              <dd>${card.color}</dd>
-              <dt class="label">生命值</dt>
-              <dd>${card.life}</dd>
+              <div class="pair">
+                <dt class="label">類型</dt>
+                <dd>${card.type}</dd>
+              </div>
+
+              <div class="pair">
+                <dt class="label">収録商品</dt>
+                <dd>${setItems.join('<br>')}</dd>
+              </div>
+
+              <div class="pair">
+                <dt class="label">顏色</dt>
+                <dd>${card.color}</dd>
+              </div>
+
+              <div class="pair">
+                <dt class="label">生命值</dt>
+                <dd>${card.life}</dd>
+              </div>
             </dl>
         </div>
 
-        <div class="oshi-info">
+        <div class="pair">
             <span class="label">主推技能</span>
             <div class="oshi skill">
               <span class="holoPower">[holo能量：${card.oshiSkill.holoPower}]</span>
@@ -523,7 +534,7 @@ function showPopup(card, index) {
             </div>
           </div>
         
-          <div class="oshi-info">
+          <div class="pair">
             <span class="label">SP主推技能</span>
             <div class="sp skill">
               <span class="holoPower">[holo能量：${card.spSkill.holoPower}]</span>
@@ -532,7 +543,7 @@ function showPopup(card, index) {
             </div>
           </div>
         
-          <div class="oshi-info">
+          <div class="pair">
             <span class="label">卡牌編號</span>
             <span>${card.id}</span>
         </div>
