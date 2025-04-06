@@ -482,9 +482,9 @@ function showPopup(card, index) {
   leftContent.appendChild(imageElement);
 
   // 處理卡包字段
-  const cardProducts = Array.isArray(card.product) ? card.product : [card.product];  // 確保 card.product 是數組
-  const productItems = cardProducts.map(productItem => {
-    const setName = productItem.replace(/\(.*\)/, "").trim();  // 去掉括號及其中內容
+  const cardSets = Array.isArray(card.set) ? card.set : [card.set];  // 確保 card.set 是數組
+  const setItems = cardSets.map(setItem => {
+    const setName = setItem.replace(/\(.*\)/, "").trim();  // 去掉括號及其中內容
     return setName;
   });
 
@@ -507,7 +507,7 @@ function showPopup(card, index) {
         </div>
         <div class="oshi-info">
           <span class="label">收錄商品</span>
-          <span>${productItems.join('<br>')}</span>
+          <span>${setItems.join('<br>')}</span>
         </div>
         <div class="oshi-info">
           <span class="label">顏色</span>
