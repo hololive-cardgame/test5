@@ -501,6 +501,49 @@ function showPopup(card, index) {
   if (card.type === "主推") {
     rightHtml += `
       <div class="oshi-details">
+        <div class="info">
+            <dl>
+              <dt class="label">類型</dt>
+              <dd>${card.type}</dd>
+              <dt class="label">収録商品</dt>
+              <dd>${setItems.join('<br>')}</dd>
+              <dt class="label">顏色</dt>
+              <dd>${card.color}</dd>
+              <dt class="label">生命值</dt>
+              <dd>${card.life}</dd>
+            </dl>
+        </div>
+
+        <div class="oshi-info">
+            <span class="label">主推技能</span>
+            <div class="oshi skill">
+              <span class="holoPower">[holo能量：${card.oshiSkill.holoPower}]</span>
+              <span class="oshiSkill name">${card.oshiSkill.name}</span>
+              <span class="oshiSkill effect">${card.oshiSkill.effect}</span>
+            </div>
+          </div>
+        
+          <div class="oshi-info">
+            <span class="label">SP主推技能</span>
+            <div class="sp skill">
+              <span class="holoPower">[holo能量：${card.spSkill.holoPower}]</span>
+              <span class="spSkill name">${card.spSkill.name}</span>
+              <span class="spSkill effect">${card.spSkill.effect}</span>
+            </div>
+          </div>
+        
+          <div class="oshi-info">
+            <span class="label">卡牌編號</span>
+            <span>${card.id}</span>
+        </div>
+      </div>`;
+  }
+
+
+  /*
+  if (card.type === "主推") {
+    rightHtml += `
+      <div class="oshi-details">
         <div class="oshi-info">
           <span class="label">類型</span>
           <span>${card.type}</span>
@@ -547,6 +590,7 @@ function showPopup(card, index) {
         </div>
       </div>`;
   }
+  */
 
   
 /*
