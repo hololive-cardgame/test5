@@ -819,6 +819,126 @@ function showPopup(card, index) {
       </div>`;
   }
   */
+
+  /*
+  if (card.type === "主推") {
+    rightHtml += `
+      <div id="popupOshi">
+        <div class="info">
+          <dl>
+            <dt class="label">類型</dt>
+            <dd>${card.type}</dd>
+            
+            <dt class="label">収録商品</dt>
+            <dd>${productItems.join('<br>')}</dd>
+            
+            <dt class="label">顏色</dt>
+            <dd>${card.color}</dd>
+            
+            <dt class="label">生命值</dt>
+            <dd>${card.life}</dd>
+          </dl>
+        </div>
+
+        <div class="oshi-skill">
+          <p class="label oshiSkill">主推技能</p>
+          <p>[holo能量：${card.oshiSkill.holoPower}]<span>${card.oshiSkill.name}</span>${card.oshiSkill.effect}</p>
+        </div>
+
+        <div class="sp-skill">
+          <p class="label spSkill">SP主推技能</p>
+          <p>[holo能量：${card.spSkill.holoPower}]<span>${card.spSkill.name}</span>${card.spSkill.effect}</p>
+        </div>
+
+        <div class="cardNum">
+          <p class="label id">卡牌編號：<span>${card.id}</span></p>
+      </div>
+    </div>`;
+  }
+  */
+  
+  /*
+  let rightHtml = `
+    <h2>${card.name}</h2>
+    <p><strong><span class="label">類型</span></strong> ${card.type}</p>
+  `;
+
+  if (card.type === "主推") {
+    rightHtml += `
+      <div id="popupOshiType">
+        <p><strong><span class="label">屬性</span></strong> ${card.attribute}</p>
+        <p><strong><span class="label">生命值</span></strong> ${card.life}</p>
+        <p><strong><span class="label skill">主推技能</span></strong> ${card.skill}</p>
+        <p><strong><span class="label spSkill">SP主推技能</span></strong> ${card.spSkill}</p>
+        <p><strong><span class="label">卡包</span></strong> ${card.set}</p>
+        <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
+      </div>`;
+  } else if (card.type === "成員") {
+    rightHtml += `
+      <div id="popupHolomenType">
+        <p><strong><span class="label">綻放等級</span></strong> ${card.bloom}</p>
+        <p><strong><span class="label">標籤</span></strong> ${card.tag}</p>
+        <p><strong><span class="label">屬性</span></strong> ${card.attribute}</p>
+        <p><strong><span class="label">體力</span></strong> ${card.hp}</p>
+        ${card.collabEffect ? `<p><strong><span class="label collab">聯動</span></strong> ${card.collabEffect}</p>` : ''}
+        ${card.bloomEffect ? `<p><strong><span class="label bloom">綻放</span></strong> ${card.bloomEffect}</p>` : ''}
+        ${card.giftEffect ? `<p><strong><span class="label gift">天賦</span></strong> ${card.giftEffect}</p>` : ''}
+        ${card.skill1 ? `
+          <p>
+            <strong><span class="label skill1">藝能</span></strong>
+            <div style="display: flex; flex-direction: row; gap: 8px; align-items: center; white-space: nowrap;">
+              ${card.skill1.images.map(image => `
+                <img src="${image}" alt="Skill Image" style="width: 24%; max-height: 300px; object-fit: contain;">
+              `).join('')}
+            </div>
+            ${card.skill1.description ? `
+              <div>
+                <span>${card.skill1.description}</span>
+              </div>
+            ` : ''}
+          </p>
+        ` : ''}
+        ${card.skill2 ? `
+          <p>
+            <strong><span class="label skill1">藝能</span></strong>
+            <div style="display: flex; flex-direction: row; gap: 8px; align-items: center; white-space: nowrap;">
+              ${card.skill2.images.map(image => `
+                <img src="${image}" alt="Skill Image" style="width: 24%; max-height: 300px; object-fit: contain;">
+              `).join('')}
+            </div>
+            ${card.skill2.description ? `
+              <div>
+                <span>${card.skill2.description}</span>
+              </div>
+            ` : ''}
+          </p>
+        ` : ''}
+        <p><strong><span class="label">交棒</span></strong>
+          ${card.batonImage[0] ? `<img id="popupBatonImage1" src="${card.batonImage[0]}" alt="Baton Image 1" style="width: 48%; max-height: 300px; object-fit: contain; margin-right: 4%;">` : ''}
+          ${card.batonImage[1] ? `<img id="popupBatonImage2" src="${card.batonImage[1]}" alt="Baton Image 2" style="width: 48%; max-height: 300px; object-fit: contain;">` : ''}
+        </p>
+        ${card.rule ? `<p><strong><span class="label rule">特殊規則</span></strong> ${card.rule}</p>` : ''}
+        <p><strong><span class="label">卡包</span></strong> ${card.set}</p>
+        <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
+      </div>`;
+  } else if (card.type.includes("支援")) {
+    rightHtml += `
+      <div id="popupSupportType">
+        ${card.tag ? `<p><strong><span class="label">標籤</span></strong> ${card.tag}</p>` : ''}
+        <p><strong><span class="label">效果</span></strong> ${card.supportEffect}</p>
+        <p><strong><span class="label">卡包</span></strong> ${card.set}</p>
+        <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
+      </div>`;
+  } else if (card.type === "吶喊") {
+    rightHtml += `
+      <div id="popupYellType">
+        <p><strong><span class="label">屬性</span></strong> ${card.attribute}</p>
+        <p><strong><span class="label">效果</span></strong> ${card.yellEffect}</p>
+        <p><strong><span class="label">卡包</span></strong> ${card.set}</p>
+        <p><strong><span class="label">卡牌編號</span></strong> ${card.id}</p>
+      </div>`;
+  }
+  */
   
   rightContent.innerHTML = rightHtml;
 
