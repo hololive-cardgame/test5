@@ -194,6 +194,13 @@ function generateFilterOptions() {
         if (isInitialized && !isFiltering) {
           filterCards();
         }
+      },
+      render: {
+        option_create: () => null  // 避免顯示 "新增選項" 提示
+      },
+      onInitialize() {
+        // 讓輸入框變成只讀，無法輸入
+        this.control_input.setAttribute('readonly', 'readonly');
       }
     });
 
@@ -205,6 +212,13 @@ function generateFilterOptions() {
         if (isInitialized && !isFiltering) {
           filterCards();
         }
+      },
+      render: {
+        option_create: () => null  // 避免顯示 "新增選項" 提示
+      },
+      onInitialize() {
+        // 讓輸入框變成只讀，無法輸入
+        this.control_input.setAttribute('readonly', 'readonly');
       }
     });
 
@@ -216,6 +230,13 @@ function generateFilterOptions() {
           document.getElementById("clearBloom").style.display = "inline-block";
           filterCards();
         }
+      },
+      render: {
+        option_create: () => null  // 避免顯示 "新增選項" 提示
+      },
+      onInitialize() {
+        // 讓輸入框變成只讀，無法輸入
+        this.control_input.setAttribute('readonly', 'readonly');
       }
     });
 
@@ -238,6 +259,13 @@ function generateFilterOptions() {
           document.getElementById("clearProduct").style.display = "inline-block";
           filterCards();
         }
+      },
+      render: {
+        option_create: () => null  // 避免顯示 "新增選項" 提示
+      },
+      onInitialize() {
+        // 讓輸入框變成只讀，無法輸入
+        this.control_input.setAttribute('readonly', 'readonly');
       }
     });
 
