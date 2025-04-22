@@ -45,33 +45,54 @@ function loadCardData() {
 }
 loadCardData();
 
-// 自訂文字處理與模糊匹配器
+// Step 1: 自定義漢字拼音對照表
+const customRomajiMap = {
+  "白上": "shirakami",
+  "大神": "ookami",
+  "星街": "hoshimachi",
+  "宝鐘": "houshou",
+  "夏色": "natsuiro",
+  // 可持續擴充...
+};
+
+// Step 2: 統一文字處理
 function normalizeTextAdvanced(text) {
-  if (!text) return "";
-  return wanakana.toHiragana(
+  return wanakana.toRomaji(
     text
-      .toLowerCase()
-      .normalize("NFKC")
-      .replace(/[Ａ-Ｚａ-ｚ０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
-      .replace(/\s+/g, '')
+      .normalize("NFKC")          // 全形轉半形
+      .replace(/[\s·・\-_]/g, '') // 移除空白、連字號等常見符號
+      .toLowerCase()              // 小寫統一
   );
 }
 
-function romajiMatcherImproved(params, data) {
-  if ($.trim(params.term) === '') return data;
+// Step 3: Select2 自定義 matcher
+function romajiMatcher(params, data) {
+  // 沒輸入 ➝ 返回所有選項
+  if ($.trim(params.term) === '') {
+    return data;
+  }
   if (!data.text) return null;
 
   const keyword = normalizeTextAdvanced(params.term);
-  const dataText = normalizeTextAdvanced(data.text);
+  const originalText = data.text;
+  const normalizedText = normalizeTextAdvanced(originalText);
 
-  // 也支援轉成羅馬拼音比較
-  const romaji = wanakana.toRomaji(data.text).toLowerCase();
-
-  if (dataText.includes(keyword) || romaji.includes(keyword)) {
+  // 普通比對（英文、日文假名、羅馬拼音）
+  if (normalizedText.includes(keyword)) {
     return data;
   }
 
-  return null;
+  // 額外檢查漢字對應拼音
+  for (const hanzi in customRomajiMap) {
+    if (originalText.includes(hanzi)) {
+      const mapped = customRomajiMap[hanzi];
+      if (mapped.includes(keyword)) {
+        return data;
+      }
+    }
+  }
+
+  return null; // 沒命中
 }
 
 // 根據 JSON 資料生成篩選選項
@@ -216,7 +237,7 @@ function generateFilterOptions() {
   $(document).ready(function() {
     // 初始化關鍵字、標籤
     $("#keyword, #tag").select2({
-      matcher: romajiMatcherImproved,
+      matcher: romajiMatcher,
       placeholder: "",
       width: "100%"
     });
