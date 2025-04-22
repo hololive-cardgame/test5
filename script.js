@@ -179,6 +179,17 @@ function generateFilterOptions() {
     keywordSelect = new TomSelect("#keyword", {
       allowEmptyOption: true,
       create: false,
+      onFocus: function () {
+        this.setTextboxValue('');
+        this.refreshOptions(); // 重新顯示下拉選項
+      },
+      onBlur: function () {
+        if (!this.getValue()) {
+          // 若沒有選任何東西，清除 textbox 文字
+          this.setTextboxValue('');
+          this.refreshOptions();
+        }
+      },
       onChange: () => {
         if (isInitialized && !isFiltering) {
           document.getElementById("clearKeyword").style.display = "inline-block";
@@ -243,6 +254,17 @@ function generateFilterOptions() {
     tagSelect = new TomSelect("#tag", {
       allowEmptyOption: true,
       create: false,
+      onFocus: function () {
+        this.setTextboxValue('');
+        this.refreshOptions(); // 重新顯示下拉選項
+      },
+      onBlur: function () {
+        if (!this.getValue()) {
+          // 若沒有選任何東西，清除 textbox 文字
+          this.setTextboxValue('');
+          this.refreshOptions();
+        }
+      },
       onChange: () => {
         if (isInitialized && !isFiltering) {
           document.getElementById("clearTag").style.display = "inline-block";
