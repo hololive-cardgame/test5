@@ -185,13 +185,13 @@ function generateFilterOptions() {
 
   // 初始化 Select2
   $(document).ready(function() {
-    // 初始化關鍵字
-    $("#keyword").select2({
+    // 初始化關鍵字、標籤
+    $("#keyword, #tag").select2({
       placeholder: "",
       width: "100%"
     });
-    // 初始化顏色、綻放等級、標籤、收錄商品
-    $("#color, #bloom, #tag, #product").select2({
+    // 初始化顏色、綻放等級、收錄商品
+    $("#color, #bloom, #product").select2({
       placeholder: "",
       minimumResultsForSearch: Infinity,
       width: "100%"
@@ -228,7 +228,8 @@ function generateFilterOptions() {
         filterCards();
       }
     });
-    $("#keyword").on('select2:open', function () {
+    // 展開下拉選單游標
+    $("#keyword, #tag").on('select2:open', function () {
       setTimeout(() => {
         document.querySelector('.select2-container--open .select2-search__field')?.focus();
       }, 0);
