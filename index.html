@@ -8,8 +8,7 @@
     <link rel="icon" href="images/icon.png" type="image/png">
     <!-- 載入css -->
     <link rel="stylesheet" href="style.css">
-    <!-- <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" /> -->
-    <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/css/select2.min.css" rel="stylesheet" />
   </head>
 
   <body>
@@ -23,7 +22,7 @@
         <!-- 篩選條件 -->
         <form id="filterForm">
           <div class="filter-container">
-            <label>關鍵字</label>
+            <label for="keyword">關鍵字</label>
             <select id="keyword" name="keyword">
               <!-- 下拉選單選項會從 JSON 動態加載 -->
             </select>
@@ -35,21 +34,21 @@
           </div>
 
           <div class="filter-container">
-            <label>類型</label>
+            <label for="type">類型</label>
             <select id="type" name="type">
               <!-- 下拉選單選項會從 JSON 動態加載 -->
             </select>
           </div>
 
           <div class="filter-container">
-            <label>顏色</label>
+            <label for="color">顏色</label>
               <select id="color" name="color" multiple="multiple">
                 <!-- 下拉選單選項會從 JSON 動態加載 -->
               </select>
           </div>
 
           <div class="filter-container">
-            <label>綻放等級</label>
+            <label for="bloom">綻放等級</label>
             <select id="bloom" name="bloom">
               <!-- 下拉選單選項會從 JSON 動態加載 -->
             </select>
@@ -61,7 +60,7 @@
           </div>
 
           <div class="filter-container">
-            <label>標籤</label>
+            <label for="tag">標籤</label>
             <select id="tag" name="tag">
               <!-- 下拉選單選項會從 JSON 動態加載 -->
             </select>
@@ -73,7 +72,7 @@
           </div>
 
           <div class="filter-container">
-            <label>收錄商品</label>
+            <label for="product">收錄商品</label>
             <select id="product" name="product">
               <option value="" disabled selected></option>
               <!-- 下拉選單選項會從 JSON 動態加載 -->
@@ -153,8 +152,7 @@
 
     <!-- 載入js -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script> -->
-    <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.0.13/dist/js/select2.min.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
