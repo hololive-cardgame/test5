@@ -226,6 +226,7 @@ function generateFilterOptions() {
     $('#keyword').on('select2:open', function () {
       setTimeout(function () {
         $('.select2-container--open .select2-search__field').focus();
+        consle.log("游標");
       }, 100);
     });
 
