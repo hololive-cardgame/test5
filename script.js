@@ -86,14 +86,7 @@ function generateFilterOptions() {
   });
 
   // 填充關鍵字選項
-  keywords.forEach(keyword => {
-    if (keyword) {
-      const option = document.createElement("option");
-      option.value = keyword;
-      option.textContent = keyword;
-      $("#keyword").append(option);
-    }
-  });
+  const keywordList = Array.from(keywords);
 
   // 初始化類型
   $("#type").select2({
@@ -191,6 +184,46 @@ function generateFilterOptions() {
       minimumResultsForSearch: Infinity,
       width: "100%"
     });
+
+    function populateKeywordOptions(filteredList = []) {
+  $("#keyword").empty();
+  const listToUse = filteredList.length > 0 ? filteredList : keywordList;
+
+  listToUse.forEach(keyword => {
+    const option = new Option(keyword, keyword, false, false);
+    $("#keyword").append(option);
+  });
+
+  // 更新 select2
+  $("#keyword").trigger("change.select2");
+}
+
+    populateKeywordOptions();
+
+    $("#keywordInput").on("input", function () {
+  const inputVal = $(this).val().toLowerCase();
+  const matched = keywordList.filter(keyword =>
+    keyword.toLowerCase().includes(inputVal)
+  );
+  populateKeywordOptions(matched);
+});
+
+    $("#keywordInput").on("focus", function () {
+  const val = $(this).val().trim();
+  if (!val) {
+    populateKeywordOptions(); // 全部选项
+  }
+
+  // 强制打开 select2
+  setTimeout(() => {
+    $("#keyword").select2("open");
+  }, 0);
+});
+
+    $("#keyword").on("select2:select", function (e) {
+  const selected = e.params.data.text;
+  $("#keywordInput").val(selected);
+});
     
     // 設定初始值
     function setSelect2ValueWithoutChange(selector, value) {
