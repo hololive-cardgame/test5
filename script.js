@@ -185,8 +185,30 @@ function generateFilterOptions() {
 
   // 初始化 Select2
   $(document).ready(function() {
-    // 初始化關鍵字、顏色、綻放等級、標籤、收錄商品
-    $("#keyword, #color, #bloom, #tag, #product").select2({
+    // 初始化關鍵字
+    $("#keyword").select2({
+      tags: true,
+      placeholder: "",
+      minimumResultsForSearch: 0,
+      width: "100%",
+      createTag: function (params) {
+        const term = $.trim(params.term).toLowerCase();
+
+        // 从 <select> 元素中获取所有已有的选项
+        const existingOptions = $('#keyword option').map(function () {
+          return $(this).text().toLowerCase();
+        }).get();
+
+        // 如果输入的值存在于现有选项中，则允许选择，否则不允许新增
+        if (existingOptions.includes(term)) {
+          return null; // 允许选择现有的选项
+        }
+    
+        return null; // 返回 null，阻止新增项
+      }
+    });
+    // 初始化顏色、綻放等級、標籤、收錄商品
+    $("#color, #bloom, #tag, #product").select2({
       placeholder: "",
       minimumResultsForSearch: Infinity,
       width: "100%"
