@@ -189,7 +189,7 @@ function generateFilterOptions() {
     $("#keyword").select2({
       tags: true,
       placeholder: "",
-      // minimumResultsForSearch: 0,
+      minimumResultsForSearch: Infinity,
       width: "100%",
       createTag: function (params) {
         const term = $.trim(params.term).toLowerCase();
@@ -206,6 +206,10 @@ function generateFilterOptions() {
     
         return null; // 返回 null，阻止新增项
       }
+    });
+    // 使用 CSS 来隐藏下拉框内的输入框
+    $("#keyword").on("select2:open", function () {
+      $(".select2-search__field").prop("readonly", true); // 让输入框只读，不显示在下拉框内
     });
     // 初始化顏色、綻放等級、標籤、收錄商品
     $("#color, #bloom, #tag, #product").select2({
