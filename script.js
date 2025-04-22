@@ -45,6 +45,35 @@ function loadCardData() {
 }
 loadCardData();
 
+// 自訂文字處理與模糊匹配器
+function normalizeTextAdvanced(text) {
+  if (!text) return "";
+  return wanakana.toHiragana(
+    text
+      .toLowerCase()
+      .normalize("NFKC")
+      .replace(/[Ａ-Ｚａ-ｚ０-９]/g, s => String.fromCharCode(s.charCodeAt(0) - 0xFEE0))
+      .replace(/\s+/g, '')
+  );
+}
+
+function romajiMatcherImproved(params, data) {
+  if ($.trim(params.term) === '') return data;
+  if (!data.text) return null;
+
+  const keyword = normalizeTextAdvanced(params.term);
+  const dataText = normalizeTextAdvanced(data.text);
+
+  // 也支援轉成羅馬拼音比較
+  const romaji = wanakana.toRomaji(data.text).toLowerCase();
+
+  if (dataText.includes(keyword) || romaji.includes(keyword)) {
+    return data;
+  }
+
+  return null;
+}
+
 // 根據 JSON 資料生成篩選選項
 function generateFilterOptions() {
   const keywords = new Set();
@@ -187,6 +216,7 @@ function generateFilterOptions() {
   $(document).ready(function() {
     // 初始化關鍵字、標籤
     $("#keyword, #tag").select2({
+      matcher: romajiMatcherImproved,
       placeholder: "",
       width: "100%"
     });
