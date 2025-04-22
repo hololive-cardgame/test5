@@ -189,7 +189,7 @@ function generateFilterOptions() {
     $("#keyword").select2({
       tags: true,
       placeholder: "",
-      minimumResultsForSearch: 0,
+      // minimumResultsForSearch: 0,
       width: "100%",
       createTag: function (params) {
         const term = $.trim(params.term).toLowerCase();
