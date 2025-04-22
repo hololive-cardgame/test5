@@ -226,7 +226,7 @@ function generateFilterOptions() {
     $('#keyword').on('select2:open', function () {
       setTimeout(function () {
         $('.select2-container--open .select2-search__field').focus();
-      }, 0);
+      }, 100);
     });
 
     // 監聽篩選條件變動，觸發篩選
