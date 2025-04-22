@@ -17,6 +17,7 @@
     </header>
 
     <main>
+      <div class="overlay" id="overlay"></div>
       <div class="left-side">
         <!-- 篩選條件 -->
         <form id="filterForm">
@@ -40,8 +41,8 @@
           </div>
 
           <div class="filter-container">
-            <label for="attribute">屬性</label>
-              <select id="attribute" name="attribute" multiple="multiple">
+            <label for="color">顏色</label>
+              <select id="color" name="color" multiple="multiple">
                 <!-- 下拉選單選項會從 JSON 動態加載 -->
               </select>
           </div>
@@ -71,12 +72,12 @@
           </div>
 
           <div class="filter-container">
-            <label for="set">卡包</label>
-            <select id="set" name="set">
+            <label for="product">收錄商品</label>
+            <select id="product" name="product">
               <option value="" disabled selected></option>
               <!-- 下拉選單選項會從 JSON 動態加載 -->
             </select>
-            <span id="clearSet" class="clear-button" style="display: none;">
+            <span id="clearProduct" class="clear-button" style="display: none;">
               <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1k33q06" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon">
                 <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
               </svg>
@@ -89,9 +90,14 @@
       </div>
 
       <div class="right-side">
+        <!-- 搜尋結果筆數 -->
+        <div class="result-count" id="resultCount"></div>
         <!-- 卡牌展示區 -->
         <div id="cardContainer">
           <!-- 卡牌會在這裡動態加載 -->
+        </div>
+        <div class="noCardsWrapper hidden">
+          <p class="noCards">沒有符合的資料</p>
         </div>
       </div>
     </main>
@@ -99,14 +105,16 @@
     <!-- 卡牌彈窗 -->
     <div class="popup" id="popup">
       <div class="popup-content">
-        <!-- 左側顯示圖片 -->
-        <div class="popup-left" id="popupLeft">
-          <!-- 圖片會從 JavaScript 動態載入 -->
-        </div>
+        <div class="popup-inner">
+          <!-- 左側顯示圖片 -->
+          <div class="popup-left" id="popupLeft">
+            <!-- 圖片會從 JavaScript 動態載入 -->
+          </div>
 
-        <!-- 右側顯示資料 -->
-        <div class="popup-right" id="popupRight">
-          <!-- 資料會從 JavaScript 動態載入 -->
+          <!-- 右側顯示資料 -->
+          <div class="popup-right" id="popupRight">
+            <!-- 資料會從 JavaScript 動態載入 -->
+          </div>
         </div>
 
         <!-- 彈窗左右切換箭頭 -->
@@ -122,22 +130,20 @@
         </div>
 
         <!-- 關閉彈窗 -->
-        <div class="close-popup" id="closePopup">
-          <svg class="MuiSvgIcon-root MuiSvgIcon-fontSizeSmall css-1k33q06" focusable="false" aria-hidden="true" viewBox="0 0 24 24" data-testid="CloseIcon">
-            <path d="M19 6.41L17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"></path>
-          </svg>
-        </div>
+        <div class="close-popup" id="closePopup">關閉</div>
       </div>
     </div>
-
-    <!-- 用來切換左側欄顯示與隱藏的按鈕 -->
-    <div id="toggleButton" style="display: none;">篩選</div>
 
     <!-- 分頁按鈕 -->
     <div id="pagination">
       <!-- 分頁按鈕會動態生成 -->
     </div>
 
+    <!-- 小視窗篩選按鈕 -->
+    <div id="filterBtnWrapper" style="display: none;">
+      <div id="filterBtn">篩選 / 套用</div>
+    </div>
+      
     <footer>
       <p>© 2025 卡牌查詢網站</p>
       <p>這是粉絲自製網站，旨在分享hololive卡牌遊戲資訊，僅供使用者個人使用</p>
