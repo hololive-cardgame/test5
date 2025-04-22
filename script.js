@@ -20,6 +20,8 @@ let isMobileView = window.innerWidth < 1024;  // 初始值，根據當前螢幕�
 let observer = null;
 let sentinel = null;
 
+let keywordSelect, colorSelect, bloomSelect, tagSelect, productSelect;
+
 // 使用 fetch 從 JSON 檔案載入資料
 function loadCardData() {
   const cachedData = localStorage.getItem("cardsData");
@@ -174,7 +176,7 @@ function generateFilterOptions() {
   // 初始化 Tom Select
   $(document).ready(function() {
     // 初始化關鍵字、顏色、綻放等級、標籤、收錄商品
-    const keywordSelect = new TomSelect("#keyword", {
+    keywordSelect = new TomSelect("#keyword", {
       allowEmptyOption: true,
       create: false,
       onChange: () => {
@@ -185,7 +187,7 @@ function generateFilterOptions() {
       }
     });
 
-    const typeSelect = new TomSelect("#type", {
+    typeSelect = new TomSelect("#type", {
       allowEmptyOption: true,
       create: false,
       onChange: () => {
@@ -195,7 +197,7 @@ function generateFilterOptions() {
       }
     });
 
-    const colorSelect = new TomSelect("#color", {
+    colorSelect = new TomSelect("#color", {
       plugins: ['remove_button'],
       persist: false,
       create: false,
@@ -206,7 +208,7 @@ function generateFilterOptions() {
       }
     });
 
-    const bloomSelect = new TomSelect("#bloom", {
+    bloomSelect = new TomSelect("#bloom", {
       allowEmptyOption: true,
       create: false,
       onChange: () => {
@@ -217,7 +219,7 @@ function generateFilterOptions() {
       }
     });
 
-    const tagSelect = new TomSelect("#tag", {
+    tagSelect = new TomSelect("#tag", {
       allowEmptyOption: true,
       create: false,
       onChange: () => {
@@ -228,7 +230,7 @@ function generateFilterOptions() {
       }
     });
 
-    const productSelect = new TomSelect("#product", {
+    productSelect = new TomSelect("#product", {
       allowEmptyOption: true,
       create: false,
       onChange: () => {
