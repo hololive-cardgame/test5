@@ -91,33 +91,21 @@ function generateFilterOptions() {
       const option = document.createElement("option");
       option.value = keyword;
       option.textContent = keyword;
-      $("#keyword").append(option);
+      document.getElementById("keyword").appendChild(option);
     }
   });
 
-  // 初始化類型
-  $("#type").select2({
-    minimumResultsForSearch: Infinity,
-    width: "100%"
-  });
-  // 監聽篩選條件變動，觸發篩選
-  $("#type").on("select2:select", function() {
-    if (isInitialized && !isFiltering) {
-      filterCards();
-    }
-  });
   // 填充類型選項
   const allOption = new Option("全部","allOption");
-  $("#type").append(allOption);
+  document.getElementById("type").appendChild(allOption);
   types.forEach(type => {
     if (type) {
       const option = document.createElement("option");
       option.value = type;
       option.textContent = type;
-      $("#type").append(option);
+      document.getElementById("type").appendChild(option);
     }
   });
-  $("#type").trigger("change");  // 觸發更新
 
   // 填充顏色選項
   colors.forEach(color => {
@@ -125,7 +113,7 @@ function generateFilterOptions() {
       const option = document.createElement("option");
       option.value = color;
       option.textContent = color;
-      $("#color").append(option);
+      document.getElementById("color").appendChild(option);
     }
   });
 
@@ -135,7 +123,7 @@ function generateFilterOptions() {
       const option = document.createElement("option");
       option.value = bloom;
       option.textContent = bloom;
-      $("#bloom").append(option);
+      document.getElementById("bloom").appendChild(option);
     }
   });
 
@@ -146,7 +134,7 @@ function generateFilterOptions() {
       const option = document.createElement("option");
       option.value = tag;
       option.textContent = tag;
-      $("#tag").append(option);
+      document.getElementById("tag").appendChild(option);
     }
   });
 
@@ -180,79 +168,116 @@ function generateFilterOptions() {
       option.textContent = product;
       optgroup.appendChild(option);
     });
-    $("#product").append(optgroup);
+    document.getElementById("product").appendChild(optgroup);
   });
 
-  // 初始化 Select2
+  // 初始化 Tom Select
   $(document).ready(function() {
     // 初始化關鍵字、顏色、綻放等級、標籤、收錄商品
-    $("#keyword, #color, #bloom, #tag, #product").select2({
-      placeholder: "",
-      minimumResultsForSearch: Infinity,
-      width: "100%"
-    });
-    
-    // 設定初始值
-    function setSelect2ValueWithoutChange(selector, value) {
-      const Select2 = $.fn.select2.amd.require('select2/core');
-      const $element = $(selector);
-      const instance = $element.data('select2');
-
-      if (instance) {
-        instance.triggerChange = false;  // 禁用觸發
-        $element.val(value).trigger('change');
-        instance.triggerChange = true;  // 重啟觸發
-      } else {
-        $element.val(value).trigger('change', { triggerChange: false });
+    const keywordSelect = new TomSelect("#keyword", {
+      allowEmptyOption: true,
+      create: false,
+      onChange: () => {
+        if (isInitialized && !isFiltering) {
+          document.getElementById("clearKeyword").style.display = "inline-block";
+          filterCards();
+        }
       }
-    }
+    });
+
+    const typeSelect = new TomSelect("#type", {
+      allowEmptyOption: true,
+      create: false,
+      onChange: () => {
+        if (isInitialized && !isFiltering) {
+          filterCards();
+        }
+      }
+    });
+
+    const colorSelect = new TomSelect("#color", {
+      plugins: ['remove_button'],
+      persist: false,
+      create: false,
+      onChange: () => {
+        if (isInitialized && !isFiltering) {
+          filterCards();
+        }
+      }
+    });
+
+    const bloomSelect = new TomSelect("#bloom", {
+      allowEmptyOption: true,
+      create: false,
+      onChange: () => {
+        if (isInitialized && !isFiltering) {
+          document.getElementById("clearBloom").style.display = "inline-block";
+          filterCards();
+        }
+      }
+    });
+
+    const tagSelect = new TomSelect("#tag", {
+      allowEmptyOption: true,
+      create: false,
+      onChange: () => {
+        if (isInitialized && !isFiltering) {
+          document.getElementById("clearTag").style.display = "inline-block";
+          filterCards();
+        }
+      }
+    });
+
+    const productSelect = new TomSelect("#product", {
+      allowEmptyOption: true,
+      create: false,
+      onChange: () => {
+        if (isInitialized && !isFiltering) {
+          document.getElementById("clearProduct").style.display = "inline-block";
+          filterCards();
+        }
+      }
+    });
 
     // 初始化選項
     function initializeFilterOptions() {
-      setSelect2ValueWithoutChange("#keyword", "");
-      setSelect2ValueWithoutChange("#bloom", "");
-      setSelect2ValueWithoutChange("#color", "");
-      setSelect2ValueWithoutChange("#tag", "");
-      setSelect2ValueWithoutChange("#product", "");
+      keywordSelect.clear();
+      bloomSelect.clear();
+      colorSelect.clear();
+      tagSelect.clear();
+      productSelect.clear();
     }
     initializeFilterOptions();
 
-    // 監聽篩選條件變動，觸發篩選
-    $('#color').on('change', function() {
-      if (isInitialized && !isFiltering) {
-        filterCards();
-      }
-    });
-    $("#keyword, #bloom, #tag, #product").on("select2:select", function() {
-      if (isInitialized && !isFiltering) {
-        $("#clear" + this.id.charAt(0).toUpperCase() + this.id.slice(1)).show();  // 顯示自定義清除按鈕
-        filterCards();
-      }
-    });
-    // 監聽 Select2 的清除事件
-    $("#keyword, #bloom, #tag, #product").on("select2:clear", function() {
-      if (isInitialized && !isFiltering) {
-        $("#clear" + this.id.charAt(0).toUpperCase() + this.id.slice(1)).hide();  // 隱藏自定義清除按鈕
-        console.log('Select2 clear event triggered for:', this.id);
-        $(this).select2('close');
-        filterCards();
-      }
-    });
-    // 自定義清除按鈕被點擊時
-    $("#clearKeyword, #clearBloom, #clearTag, #clearProduct").on("click", function() {
-      var target = $(this).attr("id").replace("clear", "").toLowerCase();  // 提取ID
-      isFiltering = true;
-      $("#" + target).val("").trigger("change").select2("close");  // 清空選擇框的值並觸發更新、手動關閉下拉選單
-      $(this).hide();  // 隱藏清除按鈕
+    // 自定義清除按鈕事件
+    document.getElementById("clearKeyword").addEventListener("click", () => {
+      keywordSelect.clear();
+      document.getElementById("clearKeyword").style.display = "none";
       filterCards();
-      isFiltering = false;
     });
-    // 初始化自定義清除按鈕狀態
-    $("#keyword, #bloom, #tag, #product").each(function() {
-      if ($(this).val() === "") {  // 當沒有選擇任何項目時，隱藏清除按鈕
-        $("#clear" + this.id.charAt(0).toUpperCase() + this.id.slice(1)).hide();
+    document.getElementById("clearBloom").addEventListener("click", () => {
+      bloomSelect.clear();
+      document.getElementById("clearBloom").style.display = "none";
+      filterCards();
+    });
+    document.getElementById("clearTag").addEventListener("click", () => {
+      tagSelect.clear();
+      document.getElementById("clearTag").style.display = "none";
+      filterCards();
+    });
+    document.getElementById("clearProduct").addEventListener("click", () => {
+      productSelect.clear();
+      document.getElementById("clearProduct").style.display = "none";
+      filterCards();
+    });
+
+    // 初始化清除按鈕狀態
+    ["Keyword", "Bloom", "Tag", "Product"].forEach(id => {
+      if (!document.getElementById(id.toLowerCase()).value) {
+        document.getElementById("clear" + id).style.display = "none";
       }
     });
+    
     isInitialized = true;  // 初始化完成，進行篩選
 
     // 手機觸控
@@ -290,10 +315,15 @@ clearFiltersBtn.addEventListener("click", () => {
   
   if (isAnyFilterSelected) {
     // 如果有篩選條件被選擇，則清除所有篩選條件
-    $("#keyword, #color, #bloom, #tag, #product").val("").trigger("change");
-    $("#color").val([]).trigger("change");  // 單獨處理 color 篩選條件，設為空數組並觸發更新
-    $("#type").val("allOption").trigger("change");
-    $("#clearKeyword, #clearBloom, #clearTag, #clearProduct").hide();  // 隱藏清除按鈕
+    keywordSelect.clear();
+    typeSelect.setValue("allOption");
+    colorSelect.clear();
+    bloomSelect.clear();
+    tagSelect.clear();
+    productSelect.clear();
+    ["Keyword", "Bloom", "Tag", "Product"].forEach(id => {
+      document.getElementById("clear" + id).style.display = "none";
+    });
     filterCards();
   }
   isFiltering = false;
