@@ -177,34 +177,36 @@ function generateFilterOptions() {
   $(document).ready(function() {
     // 初始化關鍵字、顏色、綻放等級、標籤、收錄商品
     keywordSelect = new TomSelect("#keyword", {
-      allowEmptyOption: true,  // 允許空選項
-      create: false,  // 禁止創建新選項
-      onFocus: function () {
-        // 點擊主欄位時清空已選擇的選項並允許手動輸入
-        if (this.getValue()) {
-          this.clear();  // 清空選擇的項目
-        }
-        this.setTextboxValue('');  // 清空輸入框文字
-        this.refreshOptions();  // 重新顯示下拉選項
-      },
-      onBlur: function () {
-        // 失去焦點時，如果未選擇任何選項，清空文字
-        if (!this.getValue()) {
-          this.setTextboxValue('');
-          this.refreshOptions();
-        } else {
-          // 如果選擇了項目，保留選中的值
-          this.setTextboxValue(this.getValue());
-        }
-      },
-      onChange: () => {
-        // 當選擇改變時，顯示清除按鈕
-        if (isInitialized && !isFiltering) {
-          document.getElementById("clearKeyword").style.display = "inline-block";
-          filterCards();  // 根據需要調用篩選邏輯
-        }
-      }
-    });
+  allowEmptyOption: true,  // 允許空選項
+  create: false,  // 禁止創建新選項
+  onFocus: function () {
+    // 點擊主欄位時清空已選擇的選項並允許手動輸入
+    if (this.getValue()) {
+      this.clear();  // 清空選擇的項目
+    }
+    this.setTextboxValue('');  // 清空輸入框文字
+    this.refreshOptions();  // 重新顯示下拉選項
+  },
+  onBlur: function () {
+    // 失去焦點時，確保下拉選單關閉
+    if (!this.getValue()) {
+      this.setTextboxValue('');  // 清空輸入框
+      this.refreshOptions();  // 重新顯示選項
+    } else {
+      this.setTextboxValue(this.getValue());  // 保留選中的值
+    }
+
+    // 嘗試強制關閉下拉選單
+    this.close();  // 強制關閉下拉選單
+  },
+  onChange: () => {
+    // 當選擇改變時，顯示清除按鈕
+    if (isInitialized && !isFiltering) {
+      document.getElementById("clearKeyword").style.display = "inline-block";
+      filterCards();  // 根據需要調用篩選邏輯
+    }
+  }
+});
 
     typeSelect = new TomSelect("#type", {
       allowEmptyOption: true,
@@ -260,19 +262,28 @@ function generateFilterOptions() {
     });
 
     tagSelect = new TomSelect("#tag", {
-      allowEmptyOption: true,
-      create: false,
-      onFocus: function () {
-        this.setTextboxValue('');
-        this.refreshOptions(); // 重新顯示下拉選項
-      },
-      onBlur: function () {
-        if (!this.getValue()) {
-          // 若沒有選任何東西，清除 textbox 文字
-          this.setTextboxValue('');
-          this.refreshOptions();
-        }
-      },
+      allowEmptyOption: true,  // 允許空選項
+  create: false,  // 禁止創建新選項
+  onFocus: function () {
+    // 點擊主欄位時清空已選擇的選項並允許手動輸入
+    if (this.getValue()) {
+      this.clear();  // 清空選擇的項目
+    }
+    this.setTextboxValue('');  // 清空輸入框文字
+    this.refreshOptions();  // 重新顯示下拉選項
+  },
+  onBlur: function () {
+    // 失去焦點時，確保下拉選單關閉
+    if (!this.getValue()) {
+      this.setTextboxValue('');  // 清空輸入框
+      this.refreshOptions();  // 重新顯示選項
+    } else {
+      this.setTextboxValue(this.getValue());  // 保留選中的值
+    }
+
+    // 嘗試強制關閉下拉選單
+    this.close();  // 強制關閉下拉選單
+  },
       onChange: () => {
         if (isInitialized && !isFiltering) {
           document.getElementById("clearTag").style.display = "inline-block";
