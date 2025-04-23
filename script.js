@@ -82,19 +82,6 @@ function romajiMatcher(params, data) {
     return data;
   }
 
-    // 如果是連續拼音的情況，拆分成兩個部分
-  const splitKeywords = keyword.split(/(?=[A-Z])/); // 按大寫字母拆分（比如 "shirakamifubuki" 會變成 ["shirakami", "fubuki"]）
-
-  // 遍歷每一個拆分出來的拼音部分，依次進行匹配
-  for (const splitKeyword of splitKeywords) {
-    const normalizedSplitKeyword = normalizeTextAdvanced(splitKeyword);
-
-    // 比較每個部分
-    if (normalizedText.includes(normalizedSplitKeyword)) {
-      return data;
-    }
-  }
-
   // 額外檢查漢字對應拼音
 const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => {
     return (
@@ -104,6 +91,22 @@ const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => 
   });
 
   if (matchByRomaji) {
+    return data;
+  }
+
+  // 如果用户输入的拼音是连续的（例如 "shirakamifubuki"），也能通过拼音映射来匹配
+  const matchByCustomRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => {
+    if (originalText.includes(kanji)) {
+      const normalizedRomaji = normalizeTextAdvanced(romaji);
+      if (normalizedRomaji.includes(keyword)) {
+        return true; // 找到匹配
+      }
+    }
+    return false;
+  });
+
+  // 如果找到匹配，返回数据
+  if (matchByCustomRomaji) {
     return data;
   }
 
