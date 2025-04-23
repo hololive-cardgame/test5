@@ -68,8 +68,10 @@ const customRomajiMap = {
   "戌神": "inugami",
   // 3期生
   "兎田": "usada",
+  "不知火フレア": ["shiranuiflare","shiranuifurea"],
   "不知火": "shiranui",
   "フレア": ["flare","furea"],
+  "白銀ノエル": ["shiroganenoel","shiroganenoeru"],
   "白銀": "shirogane",
   "ノエル": ["noel","noeru"],
   "宝鐘": "houshou",
