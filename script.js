@@ -131,6 +131,13 @@ const customRomajiMap = {
   "ホシノヴァ": ["hoshinova","hoshinovua"],
   "アイラニ・イオフィフティーン": ["airaniiofifteen","airaniiofyifutein"],
   "イオフィフティーン": ["iofifteen","iofyifutein"],
+  // ID2期生
+  "クレイジー・オリー": ["kureijiollie","kureijiori"],
+  "オリー": ["ollie","ori"],
+  "パヴォリア・レイネ": ["pavoliareine","pavuoriareine"],
+  "パヴォリア": ["pavolia","pavuoria"],
+  // ID3期生
+  
   // 可持續擴充...
 };
 
