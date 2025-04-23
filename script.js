@@ -125,6 +125,12 @@ const customRomajiMap = {
   "千速": "chihaya",
   "綺々羅々": "kikirara",
   "ヴィヴィ": "vivi",
+  // ID1期生
+  "ムーナ・ホシノヴァ": ["moonahoshinova","moonahoshinovua","munahoshinova","munahoshinovua"],
+  "ムーナ": ["moona","muna"],
+  "ホシノヴァ": ["hoshinova","hoshinovua"],
+  "アイラニ・イオフィフティーン": ["airaniiofifteen","airaniiofyifutein"],
+  "イオフィフティーン": ["iofifteen","iofyifutein"],
   // 可持續擴充...
 };
 
