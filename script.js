@@ -99,27 +99,25 @@ const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => 
     return data;
   }
 
-// 組合拼音比對（把所有命中的拼音串起來）
-  let combinedRomaji = '';
-  let tempText = originalText;
+// 先整體轉成 romaji
+let tempText = originalText;
+let baseRomaji = normalizeTextAdvanced(wanakana.toRomaji(tempText));
 
-  // 依照順序組合 customRomajiMap 中命中的拼音
+// 然後將 customRomajiMap 中的 key 對應的文字替換為拼音（用 normalizeTextAdvanced）
   Object.entries(customRomajiMap).forEach(([kanji, romaji]) => {
-    if (tempText.includes(kanji)) {
-      const romajiList = Array.isArray(romaji) ? romaji : [romaji];
-      combinedRomaji += romajiList.map(normalizeTextAdvanced).join('');
-      tempText = tempText.replace(new RegExp(kanji, 'g'), '');
-    }
+  const romajiList = Array.isArray(romaji) ? romaji : [romaji];
+  romajiList.forEach(r => {
+    baseRomaji = baseRomaji.replace(
+      new RegExp(normalizeTextAdvanced(wanakana.toRomaji(kanji)), 'g'),
+      normalizeTextAdvanced(r)
+    );
   });
+});
 
-  // 剩下的處理為假名轉羅馬拼音
-  if (tempText) {
-    combinedRomaji += normalizeTextAdvanced(wanakana.toRomaji(tempText));
-  }
-
-  if (combinedRomaji.includes(keyword)) {
-    return data;
-  }
+// 現在 baseRomaji 就是你最終的拼音
+if (baseRomaji.includes(keyword)) {
+  return data;
+}
 
   return null; // 沒命中
 }
