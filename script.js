@@ -76,6 +76,12 @@ const customRomajiMap = {
   "ノエル": ["noel","noeru"],
   "宝鐘": "houshou",
   "マリン": "marine",
+  // 4期生
+  "天音": "amane",
+  "角巻": "tsunomaki",
+  "常闇": "tokoyami",
+  "姫森": "himemori",
+  "ルーナ": ["luna","runa"],
   // 可持續擴充...
 };
 
