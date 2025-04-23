@@ -45,15 +45,15 @@ function loadCardData() {
 }
 loadCardData();
 
-// Step 1: 自定義漢字拼音對照表
+// Step 1: 自定義拼音對照表
 const customRomajiMap = {
   // 0期生
   "子": "ko",
   "星街": "hoshimachi",
   // 1期生
   "白上": "shirakami",
-  "アキ・ローゼンタール": ["akirosenthal","akirozentaru"],
   "ローゼンタール": ["rosenthal","rozentaru"],
+  "アキ・ローゼンタール": ["akirosenthal","akirozentaru"],
   "夏色": "natsuiro",
   "赤井": "akai",
   // 2期生
@@ -68,41 +68,41 @@ const customRomajiMap = {
   "戌神": "inugami",
   // 3期生
   "兎田": "usada",
-  "不知火フレア": ["shiranuiflare","shiranuifurea"],
   "不知火": "shiranui",
   "フレア": ["flare","furea"],
-  "白銀ノエル": ["shiroganenoel","shiroganenoeru"],
+  "不知火フレア": ["shiranuiflare","shiranuifurea"],
   "白銀": "shirogane",
   "ノエル": ["noel","noeru"],
+  "白銀ノエル": ["shiroganenoel","shiroganenoeru"],
   "宝鐘": "houshou",
   "マリン": "marine",
   // 4期生
   "天音": "amane",
   "角巻": "tsunomaki",
   "常闇": "tokoyami",
-  "姫森ルーナ": ["himemoriluna","himemoriruna"],
   "姫森": "himemori",
   "ルーナ": ["luna","runa"],
+  "姫森ルーナ": ["himemoriluna","himemoriruna"],
   // 5期生
-  "雪花ラミィ": ["yukihanalamy","yukihanaramyi"],
   "雪花": "yukihana",
   "ラミィ": ["lamy","ramyi"],
+  "雪花ラミィ": ["yukihanalamy","yukihanaramyi"],
   "桃鈴": "momosuzu",
   "獅白": "shishiro",
-  "尾丸ポルカ": ["omarupolka","omaruporuka"],
   "尾丸": "omaru",
   "ポルカ": ["polka","poruka"],
+  "尾丸ポルカ": ["omarupolka","omaruporuka"],
   // 6期生
-  "ラプラス・ダークネス": ["la+darknesss","la+dakunesu","laplusdarknesss","laplusdakunesu","rapurasudarknesss","rapurasudakunesu"],
   "ラプラス": ["la+","laplus","rapurasu"],
   "ダークネス": ["darknesss","dakunesu"],
-  "鷹嶺ルイ": ["takanelui","takanerui"],
+  "ラプラス・ダークネス": ["la+darknesss","la+dakunesu","laplusdarknesss","laplusdakunesu","rapurasudarknesss","rapurasudakunesu"],
   "鷹嶺": "takane",
   "ルイ": ["lui","rui"],
+  "鷹嶺ルイ": ["takanelui","takanerui"],
   "博衣": "hakui",
-  "沙花叉クロヱ": ["sakamatachloe","sakamatakuroe"],
   "沙花叉": "sakamata",
   "クロヱ": ["chloe","kuroe"],
+  "沙花叉クロヱ": ["sakamatachloe","sakamatakuroe"],
   "風真": "kazama",
   // 職員
   "春先": "harusaki",
