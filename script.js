@@ -108,9 +108,10 @@ const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => 
 
 Object.entries(customRomajiMap).forEach(([kanji, romaji]) => {
     const romajiList = Array.isArray(romaji) ? romaji : [romaji];
+  const kanjiRomaji = normalizeTextAdvanced(wanakana.toRomaji(kanji));
     romajiList.forEach(r => {
       baseRomaji = baseRomaji.replace(
-        new RegExp(escapeRegExp(normalizeTextAdvanced(wanakana.toRomaji(kanji))), 'g'),
+        new RegExp(escapeRegExp(kanjiRomaji), 'g'),
         normalizeTextAdvanced(r)
       );
     });
