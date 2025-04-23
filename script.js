@@ -52,7 +52,7 @@ const customRomajiMap = {
   "星街": "hoshimachi",
   // 1期生
   "白上": "shirakami",
-  "アキ": "aki",
+  "アキ・ローゼンタール": "akirosenthal",
   "ローゼンタール": "rosenthal",
   "大神": "ookami",
   "宝鐘": "houshou",
