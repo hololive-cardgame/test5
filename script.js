@@ -80,6 +80,7 @@ const customRomajiMap = {
   "天音": "amane",
   "角巻": "tsunomaki",
   "常闇": "tokoyami",
+  "姫森ルーナ": ["himemoriluna","himemoriruna"],
   "姫森": "himemori",
   "ルーナ": ["luna","runa"],
   // 可持續擴充...
