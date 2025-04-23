@@ -69,6 +69,10 @@ function normalizeTextAdvanced(text) {
   );
 }
 
+function escapeRegExp(string) {
+  return string.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+}
+
 // Step 3: Select2 自定義 matcher
 function romajiMatcher(params, data) {
   // 沒輸入 ➝ 返回所有選項
@@ -86,7 +90,7 @@ function romajiMatcher(params, data) {
     return data;
   }
 
-  // 單字拼音匹配（允許 map 中的拼音是陣列）
+  // 額外檢查漢字對應拼音
 const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => {
     if (originalText.includes(kanji)) {
       const romajiList = Array.isArray(romaji) ? romaji : [romaji];
@@ -99,25 +103,22 @@ const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => 
     return data;
   }
 
-// 先整體轉成 romaji
-let tempText = originalText;
-let baseRomaji = normalizeTextAdvanced(wanakana.toRomaji(tempText));
+/// 3. 整段轉 romaji 並根據 map 進行替換
+  let baseRomaji = normalizeTextAdvanced(wanakana.toRomaji(originalText));
 
-// 然後將 customRomajiMap 中的 key 對應的文字替換為拼音（用 normalizeTextAdvanced）
-  Object.entries(customRomajiMap).forEach(([kanji, romaji]) => {
-  const romajiList = Array.isArray(romaji) ? romaji : [romaji];
-  romajiList.forEach(r => {
-    baseRomaji = baseRomaji.replace(
-      new RegExp(normalizeTextAdvanced(wanakana.toRomaji(kanji)), 'g'),
-      normalizeTextAdvanced(r)
-    );
+Object.entries(customRomajiMap).forEach(([kanji, romaji]) => {
+    const romajiList = Array.isArray(romaji) ? romaji : [romaji];
+    romajiList.forEach(r => {
+      baseRomaji = baseRomaji.replace(
+        new RegExp(escapeRegExp(normalizeTextAdvanced(wanakana.toRomaji(kanji))), 'g'),
+        normalizeTextAdvanced(r)
+      );
+    });
   });
-});
 
-// 現在 baseRomaji 就是你最終的拼音
-if (baseRomaji.includes(keyword)) {
-  return data;
-}
+  if (baseRomaji.includes(keyword)) {
+    return data;
+  }
 
   return null; // 沒命中
 }
