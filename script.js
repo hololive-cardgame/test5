@@ -62,7 +62,14 @@ const customRomajiMap = {
   "癒月": "yuzuki",
   "ちょこ": "choco",
   "大空": "oozora",
+  // GAMERS
   "大神": "ookami",
+  "猫又": "nekomata",
+  "戌神": "inugami",
+  // 3期生
+  "兎田": "usada",
+  "不知火": "shiranui",
+  "白銀": "shirogane",
   "宝鐘": "houshou",
   // 可持續擴充...
 };
