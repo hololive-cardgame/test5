@@ -47,9 +47,13 @@ loadCardData();
 
 // Step 1: 自定義漢字拼音對照表
 const customRomajiMap = {
-  "白上": "shirakami",
-  "大神": "ookami",
+  // 0期生
+  "子": "ko",
   "星街": "hoshimachi",
+  // 1期生
+  "白上": "shirakami",
+  "ローゼンタール": "rosenthal",
+  "大神": "ookami",
   "宝鐘": "houshou",
   "夏色": "natsuiro",
   // 可持續擴充...
@@ -82,26 +86,28 @@ function romajiMatcher(params, data) {
     return data;
   }
 
-  // 額外檢查漢字對應拼音
+  // 單字拼音匹配（允許 map 中的拼音是陣列）
 const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => {
-    return (
-      originalText.includes(kanji) &&
-      normalizeTextAdvanced(romaji).includes(keyword)
-    );
+    if (originalText.includes(kanji)) {
+      const romajiList = Array.isArray(romaji) ? romaji : [romaji];
+      return romajiList.some(r => normalizeTextAdvanced(r).includes(keyword));
+    }
+    return false;
   });
 
   if (matchByRomaji) {
     return data;
   }
 
-// 新增：組合漢字與假名對應的拼音，全拼比對
+// 組合拼音比對（把所有命中的拼音串起來）
   let combinedRomaji = '';
   let tempText = originalText;
 
   // 依照順序組合 customRomajiMap 中命中的拼音
   Object.entries(customRomajiMap).forEach(([kanji, romaji]) => {
     if (tempText.includes(kanji)) {
-      combinedRomaji += normalizeTextAdvanced(romaji);
+      const romajiList = Array.isArray(romaji) ? romaji : [romaji];
+      combinedRomaji += romajiList.map(normalizeTextAdvanced).join('');
       tempText = tempText.replace(new RegExp(kanji, 'g'), '');
     }
   });
