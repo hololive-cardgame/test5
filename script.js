@@ -115,6 +115,16 @@ const customRomajiMap = {
   "莉々華": "ririka",
   "儒烏風亭": "juufuutei",
   "轟": "todoroki",
+  // FLOW GLOW
+  "響咲": "isaki",
+  "虎金妃": "koganei",
+  "笑虎": "niko",
+  "水宮": "mizumiya",
+  "枢": "su",
+  "輪堂": "rindo",
+  "千速": "chihaya",
+  "綺々羅々": "kikirara",
+  "ヴィヴィ": "vivi",
   // 可持續擴充...
 };
 
