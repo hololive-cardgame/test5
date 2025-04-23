@@ -83,13 +83,15 @@ function romajiMatcher(params, data) {
   }
 
   // 額外檢查漢字對應拼音
-  for (const hanzi in customRomajiMap) {
-    if (originalText.includes(hanzi)) {
-      const mapped = customRomajiMap[hanzi];
-      if (mapped.includes(keyword)) {
-        return data;
-      }
-    }
+const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => {
+    return (
+      originalText.includes(kanji) &&
+      normalizeTextAdvanced(romaji).includes(keyword)
+    );
+  });
+
+  if (matchByRomaji) {
+    return data;
   }
 
   return null; // 沒命中
