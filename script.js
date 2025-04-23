@@ -104,6 +104,17 @@ const customRomajiMap = {
   "沙花叉": "sakamata",
   "クロヱ": ["chloe","kuroe"],
   "風真": "kazama",
+  // 職員
+  "春先": "harusaki",
+  // ReGLOSS
+  "火威": "hiodoshi",
+  "青": "ao",
+  "音乃瀬": "otonose",
+  "奏": "kanade",
+  "一条": "ichijou",
+  "莉々華": "ririka",
+  "儒烏風亭": "juufuutei",
+  "轟": "todoroki",
   // 可持續擴充...
 };
 
