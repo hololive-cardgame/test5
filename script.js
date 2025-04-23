@@ -84,10 +84,12 @@ const customRomajiMap = {
   "姫森": "himemori",
   "ルーナ": ["luna","runa"],
   // 5期生
+  "雪花ラミィ": ["yukihanalamy","yukihanaramyi"],
   "雪花": "yukihana",
   "ラミィ": ["lamy","ramyi"],
   "桃鈴": "momosuzu",
   "獅白": "shishiro",
+  "尾丸ポルカ": ["omarupolka","omaruporuka"],
   "尾丸": "omaru",
   "ポルカ": ["polka","poruka"],
   // 可持續擴充...
