@@ -52,6 +52,7 @@ const customRomajiMap = {
   "星街": "hoshimachi",
   // 1期生
   "白上": "shirakami",
+  "アキ": "aki",
   "ローゼンタール": "rosenthal",
   "大神": "ookami",
   "宝鐘": "houshou",
@@ -67,8 +68,6 @@ function normalizeTextAdvanced(text) {
       .replace(/[\s·・\-_]/g, '') // 移除空白、連字號等常見符號
       .toLowerCase()              // 小寫統一
   );
-  console.log('Normalized Romaji:', romaji);  // 查看結果
-  return romaji;
 }
 
 function escapeRegExp(string) {
