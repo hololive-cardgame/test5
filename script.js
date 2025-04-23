@@ -54,9 +54,16 @@ const customRomajiMap = {
   "白上": "shirakami",
   "アキ・ローゼンタール": "akirosenthal",
   "ローゼンタール": "rosenthal",
+  "夏色": "natsuiro",
+  "赤井": "akai",
+  // 2期生
+  "紫咲": "murasaki",
+  "百鬼": "nakiri",
+  "癒月": "yuzuki",
+  "ちょこ": "choco",
+  "大空": "oozora",
   "大神": "ookami",
   "宝鐘": "houshou",
-  "夏色": "natsuiro",
   // 可持續擴充...
 };
 
