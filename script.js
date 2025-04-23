@@ -52,8 +52,8 @@ const customRomajiMap = {
   "星街": "hoshimachi",
   // 1期生
   "白上": "shirakami",
-  "アキ・ローゼンタール": "akirosenthal",
-  "ローゼンタール": "rosenthal",
+  "アキ・ローゼンタール": ["akirosenthal","akirozentaru"],
+  "ローゼンタール": ["rosenthal","rozentaru"],
   "夏色": "natsuiro",
   "赤井": "akai",
   // 2期生
