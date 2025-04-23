@@ -67,6 +67,8 @@ function normalizeTextAdvanced(text) {
       .replace(/[\s·・\-_]/g, '') // 移除空白、連字號等常見符號
       .toLowerCase()              // 小寫統一
   );
+  console.log('Normalized Romaji:', romaji);  // 查看結果
+  return romaji;
 }
 
 function escapeRegExp(string) {
