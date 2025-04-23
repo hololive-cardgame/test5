@@ -94,19 +94,24 @@ const matchByRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => 
     return data;
   }
 
-  // 如果用户输入的拼音是连续的（例如 "shirakamifubuki"），也能通过拼音映射来匹配
-  const matchByCustomRomaji = Object.entries(customRomajiMap).some(([kanji, romaji]) => {
-    if (originalText.includes(kanji)) {
-      const normalizedRomaji = normalizeTextAdvanced(romaji);
-      if (normalizedRomaji.includes(keyword)) {
-        return true; // 找到匹配
-      }
+// 新增：組合漢字與假名對應的拼音，全拼比對
+  let combinedRomaji = '';
+  let tempText = originalText;
+
+  // 依照順序組合 customRomajiMap 中命中的拼音
+  Object.entries(customRomajiMap).forEach(([kanji, romaji]) => {
+    if (tempText.includes(kanji)) {
+      combinedRomaji += normalizeTextAdvanced(romaji);
+      tempText = tempText.replace(new RegExp(kanji, 'g'), '');
     }
-    return false;
   });
 
-  // 如果找到匹配，返回数据
-  if (matchByCustomRomaji) {
+  // 剩下的處理為假名轉羅馬拼音
+  if (tempText) {
+    combinedRomaji += normalizeTextAdvanced(wanakana.toRomaji(tempText));
+  }
+
+  if (combinedRomaji.includes(keyword)) {
     return data;
   }
 
