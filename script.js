@@ -64,6 +64,10 @@ const customRomajiMap = {
   "ちょこ": "choco",
   "癒月ちょこ": ["yutsukichoko","yuzukichoco","yuzukichoko"],
   "大空": "oozora",
+  // GAMERS
+  "大神": "ookami",
+  "猫又": "nekomata",
+  "戌神": "inugami",
 
   
   /*
