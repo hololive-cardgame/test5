@@ -62,6 +62,7 @@ const customRomajiMap = {
   "百鬼": "nakiri",
   "癒月": "yuzuki",
   "ちょこ": "choco",
+  "癒月ちょこ": "yuzukichoko",
   "大空": "oozora",
   // GAMERS
   "大神": "ookami",
@@ -69,21 +70,18 @@ const customRomajiMap = {
   "戌神": "inugami",
   // 3期生
   "兎田": "usada",
+  "不知火": "shiranui",
+  "フレア": ["flare","furea"],
+  "不知火フレア": "shiranuifurea",
+  "白銀": "shirogane",
+  "ノエル": ["noel","noeru"],
+  "白銀ノエル": "shiroganenoeru",
+  "宝鐘": "houshou",
+  "マリン": "marine",
 
   
   /*
 
-
-  // 3期生
-  "兎田": "usada",
-  "不知火": "shiranui",
-  "フレア": ["flare","furea"],
-  "不知火フレア": ["shiranuiflare","shiranuifurea"],
-  "白銀": "shirogane",
-  "ノエル": ["noel","noeru"],
-  "白銀ノエル": ["shiroganenoel","shiroganenoeru"],
-  "宝鐘": "houshou",
-  "マリン": "marine",
   // 4期生
   "天音": "amane",
   "角巻": "tsunomaki",
