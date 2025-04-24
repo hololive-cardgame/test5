@@ -85,19 +85,18 @@ const customRomajiMap = {
   "姫森": "himemori",
   "ルーナ": ["runa","luna"],
   "姫森ルーナ": "himemoriluna",
+  // 5期生
+  "雪花": "yukihana",
+  "ラミィ": "lamy",
+  "桃鈴": "momosuzu",
+  "獅白": "shishiro",
+  "尾丸": "omaru",
+  "ポルカ": "polka",
   
   /*
 
-  // 4期生
-  "天音": "amane",
-  "角巻": "tsunomaki",
-  "常闇": "tokoyami",
-  "姫森": "himemori",
-  "ルーナ": ["luna","runa"],
-  "姫森ルーナ": ["himemoriluna","himemoriruna"],
+
   // 5期生
-  "雪花": "yukihana",
-  "ラミィ": ["lamy","ramyi"],
   "雪花ラミィ": ["yukihanalamy","yukihanaramyi"],
   "桃鈴": "momosuzu",
   "獅白": "shishiro",
