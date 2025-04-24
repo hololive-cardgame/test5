@@ -71,14 +71,20 @@ const customRomajiMap = {
   // 3期生
   "兎田": "usada",
   "不知火": "shiranui",
-  "フレア": ["flare","furea"],
+  "フレア": ["furea","flare"],
   "不知火フレア": "shiranuifurea",
   "白銀": "shirogane",
-  "ノエル": ["noel","noeru"],
+  "ノエル": ["noeru","noel"],
   "白銀ノエル": "shiroganenoeru",
   "宝鐘": "houshou",
   "マリン": "marine",
-
+  // 4期生
+  "天音": "amane",
+  "角巻": "tsunomaki",
+  "常闇": "tokoyami",
+  "姫森": "himemori",
+  "ルーナ": ["runa","luna"],
+  "姫森ルーナ": "himemoriruna",
   
   /*
 
