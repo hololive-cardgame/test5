@@ -132,6 +132,7 @@ const customRomajiMap = {
   "アイラニ・イオフィフティーン": ["airaniiofyifuthin","airaniiofifteen"],
   // ID2期生
   "オリー": "ollie",
+  "クレイジー・オリー": ["kureijiori","kureijiollie"],
   
   /*
 
