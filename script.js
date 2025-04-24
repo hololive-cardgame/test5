@@ -60,22 +60,20 @@ const customRomajiMap = {
   // 2期生
   "紫咲": "murasaki",
   "百鬼": "nakiri",
-  "癒月": ["yutsuki","yuzuki"],
+  "癒月": "yuzuki",
   "ちょこ": "choco",
-  "癒月ちょこ": ["yutsukichoko","yuzukichoco","yuzukichoko"],
   "大空": "oozora",
   // GAMERS
   "大神": "ookami",
   "猫又": "nekomata",
   "戌神": "inugami",
+  // 3期生
+  "兎田": "usada",
 
   
   /*
 
-  // GAMERS
-  "大神": "ookami",
-  "猫又": "nekomata",
-  "戌神": "inugami",
+
   // 3期生
   "兎田": "usada",
   "不知火": "shiranui",
