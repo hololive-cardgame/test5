@@ -127,7 +127,9 @@ const customRomajiMap = {
   // ID1期生
   "ムーナ": ["muna","moona"],
   "ホシノヴァ" : "hoshinova",
+  "ムーナ・ホシノヴァ": ["munahoshinova","moonahoshinova"],
   "イオフィフティーン": ["iofyifuthin","iofifteen"],
+  "アイラニ・イオフィフティーン": ["airaniiofyifuthin","airaniiofifteen"],
 
   
   /*
