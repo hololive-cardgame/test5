@@ -49,6 +49,7 @@ loadCardData();
 const customRomajiMap = {
   // 0期生
   "子": ["ko","co"],
+  "ロボ子さん": "robocosan",
   "星街": "hoshimachi",
   /*
   // 1期生
