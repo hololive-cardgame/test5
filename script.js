@@ -88,21 +88,15 @@ const customRomajiMap = {
   // 5期生
   "雪花": "yukihana",
   "ラミィ": "lamy",
+  "雪花ラミィ": "yukihanaramyi",
   "桃鈴": "momosuzu",
   "獅白": "shishiro",
   "尾丸": "omaru",
   "ポルカ": "polka",
+  "尾丸ポルカ": "omaruporuka",
   
   /*
 
-
-  // 5期生
-  "雪花ラミィ": ["yukihanalamy","yukihanaramyi"],
-  "桃鈴": "momosuzu",
-  "獅白": "shishiro",
-  "尾丸": "omaru",
-  "ポルカ": ["polka","poruka"],
-  "尾丸ポルカ": ["omarupolka","omaruporuka"],
   // 6期生
   "ラプラス": ["la+","laplus","rapurasu"],
   "ダークネス": ["darknesss","dakunesu"],
