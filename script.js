@@ -51,13 +51,14 @@ const customRomajiMap = {
   "子": ["ko","co"],
   "ロボ子さん": "robocosan",
   "星街": "hoshimachi",
-  /*
   // 1期生
-  "白上": "shirakami",
-  "ローゼンタール": ["rosenthal","rozentaru"],
-  "アキ・ローゼンタール": ["akirosenthal","akirozentaru"],
-  "夏色": "natsuiro",
+  "ローゼンタール": ["rozentaru","rosenthal"],
+  "アキ・ローゼンタール": "akirosenthal",
   "赤井": "akai",
+  "白上": "shirakami",
+  "夏色": "natsuiro",
+  
+  /*
   // 2期生
   "紫咲": "murasaki",
   "百鬼": "nakiri",
