@@ -97,11 +97,14 @@ const customRomajiMap = {
   // 6期生
   "ラプラス": ["la+","laplus"],
   "ダークネス": ["dakunesu","darknesss"],
+  "ラプラス・ダークネス": ["rapurasudakunesu","la+darknesss","laplusdarknesss"],
   "鷹嶺": "takane",
   "ルイ": "lui",
+  "鷹嶺ルイ": "takanerui",
   "博衣": "hakui",
   "沙花叉": "sakamata",
   "クロヱ": ["kuroe","chloe"],
+  "沙花叉クロヱ": "sakamatachloe",
   "風真": "kazama",
   
   /*
