@@ -124,6 +124,11 @@ const customRomajiMap = {
   "輪堂": "rindo",
   "千速": "chihaya",
   "綺々羅々": "kikirara",
+  // ID1期生
+  "ムーナ": ["muna","moona"],
+  "ホシノヴァ" : "hoshinova",
+  "イオフィフティーン": ["iofyifuthin","iofifteen"],
+
   
   /*
 
