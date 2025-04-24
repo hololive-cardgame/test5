@@ -115,13 +115,6 @@ const customRomajiMap = {
   "莉々華": "ririka",
   "儒烏風亭": "juufuutei",
   "轟": "todoroki",
-  
-  /*
-
-  
-  // 職員
-  "春先": "harusaki",
-  
   // FLOW GLOW
   "響咲": "isaki",
   "虎金妃": "koganei",
@@ -131,7 +124,13 @@ const customRomajiMap = {
   "輪堂": "rindo",
   "千速": "chihaya",
   "綺々羅々": "kikirara",
-  "ヴィヴィ": "vivi",
+  
+  /*
+
+  
+  // 職員
+  "春先": "harusaki",
+  
   // ID1期生
   "ムーナ・ホシノヴァ": ["moonahoshinova","moonahoshinovua","munahoshinova","munahoshinovua"],
   "ムーナ": ["moona","muna"],
