@@ -130,7 +130,8 @@ const customRomajiMap = {
   "ムーナ・ホシノヴァ": ["munahoshinova","moonahoshinova"],
   "イオフィフティーン": ["iofyifuthin","iofifteen"],
   "アイラニ・イオフィフティーン": ["airaniiofyifuthin","airaniiofifteen"],
-
+  // ID2期生
+  "オリー": "ollie",
   
   /*
 
@@ -138,12 +139,7 @@ const customRomajiMap = {
   // 職員
   "春先": "harusaki",
   
-  // ID1期生
-  "ムーナ・ホシノヴァ": ["moonahoshinova","moonahoshinovua","munahoshinova","munahoshinovua"],
-  "ムーナ": ["moona","muna"],
-  "ホシノヴァ": ["hoshinova","hoshinovua"],
-  "アイラニ・イオフィフティーン": ["airaniiofifteen","airaniiofyifutein"],
-  "イオフィフティーン": ["iofifteen","iofyifutein"],
+  
   // ID2期生
   "クレイジー・オリー": ["kureijiollie","kureijiori"],
   "オリー": ["ollie","ori"],
