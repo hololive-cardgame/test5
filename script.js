@@ -48,6 +48,9 @@ loadCardData();
 // Step 1: 自定義拼音對照表
 const customRomajiMap = {
   // 0期生
+  
+  /*
+  // 0期生
   "子": "ko",
   "星街": "hoshimachi",
   // 1期生
@@ -139,6 +142,7 @@ const customRomajiMap = {
   // ID3期生
   
   // 可持續擴充...
+  */
 };
 
 // Step 2: 統一文字處理
