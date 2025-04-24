@@ -94,7 +94,7 @@ const customRomajiMap = {
   "尾丸": "omaru",
   "ポルカ": "polka",
   "尾丸ポルカ": "omaruporuka",
-  // 6期生
+  // holoX
   "ラプラス": ["la+","laplus"],
   "ダークネス": ["dakunesu","darknesss"],
   "ラプラス・ダークネス": ["rapurasudakunesu","la+darknesss","laplusdarknesss"],
@@ -106,23 +106,6 @@ const customRomajiMap = {
   "クロヱ": ["kuroe","chloe"],
   "沙花叉クロヱ": "sakamatachloe",
   "風真": "kazama",
-  
-  /*
-
-  // 6期生
-  "ラプラス": ["la+","laplus","rapurasu"],
-  "ダークネス": ["darknesss","dakunesu"],
-  "ラプラス・ダークネス": ["la+darknesss","la+dakunesu","laplusdarknesss","laplusdakunesu","rapurasudarknesss","rapurasudakunesu"],
-  "鷹嶺": "takane",
-  "ルイ": ["lui","rui"],
-  "鷹嶺ルイ": ["takanelui","takanerui"],
-  "博衣": "hakui",
-  "沙花叉": "sakamata",
-  "クロヱ": ["chloe","kuroe"],
-  "沙花叉クロヱ": ["sakamatachloe","sakamatakuroe"],
-  "風真": "kazama",
-  // 職員
-  "春先": "harusaki",
   // ReGLOSS
   "火威": "hiodoshi",
   "青": "ao",
@@ -132,6 +115,13 @@ const customRomajiMap = {
   "莉々華": "ririka",
   "儒烏風亭": "juufuutei",
   "轟": "todoroki",
+  
+  /*
+
+  
+  // 職員
+  "春先": "harusaki",
+  
   // FLOW GLOW
   "響咲": "isaki",
   "虎金妃": "koganei",
