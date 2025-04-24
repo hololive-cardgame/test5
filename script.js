@@ -94,6 +94,15 @@ const customRomajiMap = {
   "尾丸": "omaru",
   "ポルカ": "polka",
   "尾丸ポルカ": "omaruporuka",
+  // 6期生
+  "ラプラス": ["la+","laplus"],
+  "ダークネス": ["dakunesu","darknesss"],
+  "鷹嶺": "takane",
+  "ルイ": "lui",
+  "博衣": "hakui",
+  "沙花叉": "sakamata",
+  "クロヱ": ["kuroe","chloe"],
+  "風真": "kazama",
   
   /*
 
