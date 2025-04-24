@@ -84,7 +84,7 @@ const customRomajiMap = {
   "常闇": "tokoyami",
   "姫森": "himemori",
   "ルーナ": ["runa","luna"],
-  "姫森ルーナ": "himemoriruna",
+  "姫森ルーナ": "himemoriluna",
   
   /*
 
