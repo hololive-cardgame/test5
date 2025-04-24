@@ -62,6 +62,7 @@ const customRomajiMap = {
   "百鬼": "nakiri",
   "癒月": ["yutsuki","yuzuki"],
   "ちょこ": "choco",
+  "癒月ちょこ": ["yutsukichoko","yuzukichoco","yuzukichoko"],
   "大空": "oozora",
 
   
