@@ -48,11 +48,9 @@ loadCardData();
 // Step 1: 自定義拼音對照表
 const customRomajiMap = {
   // 0期生
-  
-  /*
-  // 0期生
-  "子": "ko",
+  "子": ["ko","co"],
   "星街": "hoshimachi",
+  /*
   // 1期生
   "白上": "shirakami",
   "ローゼンタール": ["rosenthal","rozentaru"],
