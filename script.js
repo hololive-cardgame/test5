@@ -138,6 +138,8 @@ const customRomajiMap = {
   // ID3期生
   "ベスティア": ["besuthia","vestia"],
   "ゼータ": "zeta",
+  "ベスティア・ゼータ": ["besuthiazeta","vestiazeta"],
+  // Myth
   
   // 可持續擴充...
   /*
