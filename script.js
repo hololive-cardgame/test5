@@ -149,6 +149,12 @@ const customRomajiMap = {
   "ワトソン": "watson",
   "アメリア": "amelia",
   "ワトソン・アメリア": ["watosonameria","watsonamelia"],
+  // Promise
+  "オーロ": ["oro","ouro"],
+  "クロニー": "kronii",
+  "七詩": "nanashi",
+  "ハコス": "hakos",
+  "ベールズ": ["beruzu","baelz"],
   
   // 可持續擴充...
   /*
