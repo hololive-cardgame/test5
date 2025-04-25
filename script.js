@@ -143,7 +143,7 @@ const customRomajiMap = {
   "森": "mori",
   "カリオペ": "calliope",
   "小鳥遊": "takanashi",
-  "一": ""ninomae,
+  "一": "ninomae",
   "伊那尓栖": ["inanisu","ina’nis"],
   "ワトソン": "watson",
   "アメリア": "amelia",
