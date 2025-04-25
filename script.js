@@ -140,6 +140,14 @@ const customRomajiMap = {
   "ゼータ": "zeta",
   "ベスティア・ゼータ": ["besuthiazeta","vestiazeta"],
   // Myth
+  "森": "mori",
+  "カリオペ": "calliope",
+  "小鳥遊": "takanashi",
+  "一": ""ninomae,
+  "伊那尓栖": ["inanisu","ina’nis"],
+  "ワトソン": "watson",
+  "アメリア": "amelia",
+  "ワトソン・アメリア": "watosonameria",
   
   // 可持續擴充...
   /*
