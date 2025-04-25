@@ -142,12 +142,13 @@ const customRomajiMap = {
   // Myth
   "森": "mori",
   "カリオペ": "calliope",
+  "森カリオペ": "morikariope",
   "小鳥遊": "takanashi",
-  "一": "ninomae",
-  "伊那尓栖": ["inanisu","ina’nis"],
+  "伊那尓栖": ["inanisu","ina'nis"],
+  "一伊那尓栖": ["ninomaeinanisu","ninomaeina'nis"],
   "ワトソン": "watson",
   "アメリア": "amelia",
-  "ワトソン・アメリア": "watosonameria",
+  "ワトソン・アメリア": ["watosonameria","watsonamelia"],
   
   // 可持續擴充...
   /*
