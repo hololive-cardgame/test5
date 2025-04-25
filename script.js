@@ -152,9 +152,11 @@ const customRomajiMap = {
   // Promise
   "オーロ": ["oro","ouro"],
   "クロニー": "kronii",
+  "オーロ・クロニー": "ourokronii",
   "七詩": "nanashi",
   "ハコス": "hakos",
   "ベールズ": ["beruzu","baelz"],
+  "ハコス・ベールズ": ["hakosuberuzu","hakosbaelz"],
   
   // 可持續擴充...
   /*
