@@ -134,15 +134,17 @@ const customRomajiMap = {
   "オリー": "ollie",
   "クレイジー・オリー": ["kureijiori","kureijiollie"],
   "パヴォリア": ["pavoria","pavolia"],
+  "パヴォリア・レイネ": ["pavoriareine","pavoliareine"],
+  // ID3期生
+  "ベスティア": ["besuthia","vestia"],
+  "ゼータ": "zeta",
+  
+  // 可持續擴充...
   /*
 
   
   // 職員
   "春先": "harusaki",
-  
-  // ID3期生
-  
-  // 可持續擴充...
   */
 };
 
