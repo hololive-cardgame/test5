@@ -166,6 +166,7 @@ const customRomajiMap = {
   "モココ・アビスガード": ["mokokoabisugado","mococoabyssgard"],
   // Justice
   "ジジ": "gigi",
+  "ジジ・ムリン": "gigimurin",
   // 職員
   "春先": "harusaki",
   // 可持續擴充...
