@@ -173,8 +173,15 @@ const customRomajiMap = {
   // 職員
   "春先": "harusaki",
   // 其他
-  "魔法少女": "mahoushoujo",
+  "魔法": "mahou",
+  "少女": "shoujo",
   "建設": "kensetsu",
+  "白": "shiro",
+  "緑": "midori",
+  "赤": "aka",
+  "紫": "murasaki",
+  "黄": "kiiro",
+  
 };
 
 // Step 2: 統一文字處理
