@@ -164,15 +164,11 @@ const customRomajiMap = {
   "フワワ・アビスガード": ["fuwawaabisugado","fuwawaabyssgard"],
   "モココ": "mococo",
   "モココ・アビスガード": ["mokokoabisugado","mococoabyssgard"],
-  // 可持續擴充...
-
-
-
-  
-  /*
+  // Justice
+  "ジジ": "gigi",
   // 職員
   "春先": "harusaki",
-  */
+  // 可持續擴充...
 };
 
 // Step 2: 統一文字處理
