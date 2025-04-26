@@ -174,6 +174,7 @@ const customRomajiMap = {
   "春先": "harusaki",
   // 其他
   "魔法少女": "mahoushoujo",
+  "建設": "kensetsu",
 };
 
 // Step 2: 統一文字處理
