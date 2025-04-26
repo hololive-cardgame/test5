@@ -159,8 +159,11 @@ const customRomajiMap = {
   "ハコス・ベールズ": ["hakosuberuzu","hakosbaelz"],
   // Advent
   "レイヴンクロフト": "ravencroft",
+  "ネリッサ・レイヴンクロフト": "nerissaravencroft",
   "アビスガード": ["abisugado","abyssgard"],
+  "フワワ・アビスガード": ["fuwawaabisugado","fuwawaabyssgard"],
   "モココ": "mococo",
+  "モココ・アビスガード": ["mokokoabisugado","mococoabyssgard"],
   // 可持續擴充...
 
 
