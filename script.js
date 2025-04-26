@@ -172,6 +172,8 @@ const customRomajiMap = {
   "インドネシア": "indonesia",
   // 職員
   "春先": "harusaki",
+  // 其他
+  "魔法少女": "mahoushoujo",
 };
 
 // Step 2: 統一文字處理
