@@ -167,9 +167,11 @@ const customRomajiMap = {
   // Justice
   "ジジ": "gigi",
   "ジジ・ムリン": "gigimurin",
+  // 事務所
+  "ホロライブ": "hololive",
+  "インドネシア": "indonesia",
   // 職員
   "春先": "harusaki",
-  // 可持續擴充...
 };
 
 // Step 2: 統一文字處理
