@@ -50,14 +50,19 @@ const customRomajiMap = {
   // 0期生
   "ときのそら": "時乃空",
   "子": ["ko","co"],
-  "ロボ子さん": "robocosan",
+  "ロボ子さん": ["robocosan","蘿蔔子"],
+  "さくらみこ": "櫻巫女",
   "星街": "hoshimachi",
+  "星街すいせい": "星街彗星",
   // 1期生
   "ローゼンタール": ["rozentaru","rosenthal"],
-  "アキ・ローゼンタール": ["akirozentaru","akirosenthal"],
+  "アキ・ローゼンタール": ["akirozentaru","akirosenthal","亞綺羅森塔爾"],
   "赤井": "akai",
+  "赤井はあと": "赤井心",
   "白上": "shirakami",
+  "白上フブキ": "白上吹雪",
   "夏色": "natsuiro",
+  "夏色まつり": "夏色祭",
   // 2期生
   "紫咲": "murasaki",
   "百鬼": "nakiri",
