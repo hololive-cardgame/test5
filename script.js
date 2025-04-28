@@ -48,6 +48,7 @@ loadCardData();
 // Step 1: 自定義拼音對照表
 const customRomajiMap = {
   // 0期生
+  "ときのそら": "時乃空",
   "子": ["ko","co"],
   "ロボ子さん": "robocosan",
   "星街": "hoshimachi",
